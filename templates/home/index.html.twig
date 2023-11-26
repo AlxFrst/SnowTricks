@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - SnowTrick
+{% endblock %}
+
+{% block body %}
+	<div class="bg-cover bg-no-repeat bg-center h-96 relative" style="background-image: url('/herobanner.png');">
+		<div class="absolute inset-0 bg-black opacity-50"></div>
+		<div class="absolute inset-0 flex items-center justify-center">
+			<div class="text-white text-center">
+				<h1 class="text-4xl font-semibold mb-4">Bienvenue sur SnowTrick</h1>
+				<p class="text-lg mb-8">Découvrez les figures de snowboard et partagez votre passion.</p>
+			</div>
+		</div>
+	</div>
+	<div class="bg-gray-100 min-h-screen py-12">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
+
+				<!-- Héro Banner -->
+
+
+				<!-- Section Présentation plus grande -->
+					<section class="mb-12"> <h2 class="text-2xl font-semibold mb-4">Présentation</h2>
+					<p class="text-gray-500">
+						Bienvenue sur SnowTrick, la destination ultime pour les passionnés de snowboard de tous niveaux ! Notre mission est de vous offrir une plateforme collaborative dédiée au snowboard, où vous pouvez apprendre de nouvelles figures, partager votre expertise et vous connecter avec d'autres riders du monde entier.
+					</p>
+					<p class="text-gray-500">
+						Que vous soyez un débutant cherchant à maîtriser les bases ou un rider expérimenté cherchant à repousser vos limites, SnowTrick est l'endroit idéal pour vous. Voici ce que vous pouvez attendre de notre communauté :
+					</p>
+					<ul class="list-disc pl-6 mt-4">
+						<li class="text-gray-500">Un annuaire complet des figures de snowboard pour vous aider à découvrir de nouvelles astuces.</li>
+						<li class="text-gray-500">La possibilité de contribuer en partageant vos propres astuces et en discutant avec d'autres riders.</li>
+						<li class="text-gray-500">Des discussions animées sur les dernières tendances, les équipements recommandés et les meilleures destinations pour le snowboard.</li>
+						<li class="text-gray-500">La possibilité de créer des liens avec des marques de snowboard grâce à notre communauté grandissante.</li>
+					</ul>
+					<p class="text-gray-500">
+						Chez SnowTrick, nous sommes déterminés à vous aider à progresser et à vivre pleinement votre passion pour le snowboard. Rejoignez-nous dès aujourd'hui et faites partie de la plus grande communauté de riders en ligne !
+					</p>
+				</section>
+
+
+				<!-- Section Figures Populaires sous forme de Cards -->
+				<section class="mb-8">
+					<h2 class="text-2xl font-semibold mb-4">Figures de Snowboard Populaires</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {% for trick in tricks %}
+                        <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6">
+                            <h2 class="text-2xl font-semibold mb-4">{{ trick.name }}</h2>
+                            <p class="text-gray-500">{{ trick.description }}</p>
+                        </div>
+                    {% endfor %}
+					</div>
+				</section>
+
+
+			</div>
+		</div>
+	</div>
+{% endblock %}
