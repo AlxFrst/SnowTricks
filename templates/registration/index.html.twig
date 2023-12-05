@@ -3,32 +3,37 @@
 {% block title %}Hello RegistrationController!{% endblock %}
 
 {% block body %}
-    <div class="container" style="height: 85vh">
+    <div class="container mx-auto px-4" style="height: 85vh">
         {% for flash_error in app.flashes('verify_email_error') %}
-            <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">{{ flash_error }}</div>
         {% endfor %}
-        <div class="row justify-content-md-center">
-            <div class="bg-white card shadow rounded-lg col-md-8 col-lg-4 text-center p-3">
+        <div class="flex justify-center items-center h-full">
+            <div class="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4">
                 <form method="post">
-                    <h1 class="h3 mb-3 font-weight-normal">Inscription</h1>
-                    {{ form_start(registrationForm) }}
-                    <div class="form-group">
+                    <h1 class="text-center text-xl mb-4">Inscription</h1>
+                    {{ form_start(registrationForm, {'attr': {'class': 'space-y-4'}}) }}
+                    <div>
                         {{ form_row(registrationForm.username, {
                             label: 'Nom d\'utilisateur',
+                            attr: {'class': 'block text-gray-700 text-sm font-bold mb-2'}
                         }) }}
                         {{ form_row(registrationForm.email, {
                             label: 'Adresse email',
+                            attr: {'class': 'block text-gray-700 text-sm font-bold mb-2'}
                         }) }}
                         {{ form_row(registrationForm.plainPassword, {
                             label: 'Mot de passe',
+                            attr: {'class': 'block text-gray-700 text-sm font-bold mb-2'}
                         }) }}
                         {{ form_row(registrationForm.agreeTerms, {
                             label: 'J\'accepte les conditions d\'utilisation',
+                            attr: {'class': 'block text-gray-700 text-sm font-bold mb-2'}
                         }) }}
 
-                        <button type="submit" class="btn btn-primary">Créer mon compte</button>
+                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Créer mon compte</button>
                     </div>
                     {{ form_end(registrationForm) }}
+                </form>
             </div>
         </div>
     </div>
