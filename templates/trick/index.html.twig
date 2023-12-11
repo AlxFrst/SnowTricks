@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Trick index{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center">
+
+        <div class="col-12 col-lg-11 p-lg-5 shadow bg-white">
+            <h1>Trick index</h1>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Publication Status</th>
+                        <th scope="col">Created date</th>
+                        <th scope="col">Modified date</th>
+                        <th scope="col">actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for trick in tricks %}
+                        <tr>
+                            <td>{{ trick.name }}</td>
+                            <td>{{ trick.description }}</td>
+                            <td>{{ trick.publicationStatusTrick }}</td>
+                            <td>{{ trick.createdAt ? trick.createdAt|date('Y-m-d') : '' }}</td>
+                            <td>{{ trick.modifiedAt ? trick.modifiedAt|date('Y-m-d') : '' }}</td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="7">no records found</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

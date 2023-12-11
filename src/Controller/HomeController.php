@@ -9,12 +9,17 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'app_home')]
+    #[Route('/', name: 'app_home')]
     public function index(TrickRepository $tricks): Response
     {
-        $tricks = $tricks->findBy([], ['created_at' => 'DESC'], 6);
+        $criteria = [];
+        if ($this->getUser() !== null){
+            $criteria = ['publicationStatusTrick' => 'Published' ];
+        }
+
         return $this->render('home/index.html.twig', [
-            'tricks' => $tricks,
+            'tricks' => $tricks->findBy($criteria,['created_at' => 'ASC'],6,0),
+            'offset' => 6
         ]);
     }
 }
