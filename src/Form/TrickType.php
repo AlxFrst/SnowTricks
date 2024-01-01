@@ -18,7 +18,9 @@ class TrickType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
+            ->add('name', null , [
+                'label' => "Nom de la figure",
+            ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
                 'multiple' => true,
