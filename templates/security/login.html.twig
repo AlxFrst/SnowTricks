@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connexion{% endblock %}
+
+{% block body %}
+    <div class="container mx-auto flex items-center justify-center" style="height: 85vh">
+        {% for flash_successful in app.flashes('success') %}
+            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4" role="alert">
+                {{ flash_successful }}
+            </div>
+        {% endfor %}
+        {% if error %}
+            <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+        <div class="bg-white shadow-lg rounded-lg p-6 w-full max-w-md">
+            <form method="post" class="space-y-6">
+                {% if app.user %}
+                    <div class="mb-3">
+                        Vous êtes connecté(e) en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}" class="text-blue-600 hover:text-blue-800">Déconnexion</a>
+                    </div>
+                {% endif %}
+                <h1 class="text-2xl font-semibold mb-4">Veuillez vous connecter</h1>
+                <div>
+                    <label class="block mb-2" for="inputUsername">Nom d'utilisateur</label>
+                    <input type="text" value="{{ last_username }}" name="username" id="inputUsername"
+                           class="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                           autocomplete="username" required autofocus>
+                </div>
+                <div>
+                    <label class="block mb-2" for="inputPassword">Mot de passe</label>
+                    <input type="password" name="password" id="inputPassword"
+                           class="form-input mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                           autocomplete="current-password" required>
+                </div>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input id="remember_me" name="_remember_me" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                        <label for="remember_me" class="ml-2 block text-sm leading-5 text-gray-900">
+                            Se souvenir de moi
+                        </label>
+                    </div>
+                    <a href="{{ path('app_forgot_password_request') }}" class="text-sm text-blue-600 hover:text-blue-800">
+                        Mot de passe oublié ?
+                    </a>
+                </div>
+
+                <button type="submit" class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:border-blue-700 focus:ring-blue active:bg-blue-700 transition duration-150 ease-in-out">
+                    Connexion
+                </button>
+                <div class="text-sm leading-5">
+                    <a href="{{ path('app_register') }}" class="font-medium text-blue-600 hover:text-blue-800">
+                        S'inscrire
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
