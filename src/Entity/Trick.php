@@ -12,9 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
 class Trick
 {
 
-    public const PUBLICATION_STATUS_WAITING = 'Waiting_validation';
-    public const PUBLICATION_STATUS_PUBLISHED = 'Published';
-    public const PUBLICATION_STATUS_UNPUBLISHED = 'Unpublished';
+    public const PUBLICATION_STATUS_WAITING = 'En attente';
+    public const PUBLICATION_STATUS_PUBLISHED = 'Publié';
+    public const PUBLICATION_STATUS_UNPUBLISHED = 'Dépublié';
     public const PUBLICATION_STATUSES = [
         self::PUBLICATION_STATUS_PUBLISHED,
         self::PUBLICATION_STATUS_WAITING,
@@ -142,7 +142,6 @@ class Trick
     public function removePictures(Pictures $pictures): self
     {
         if ($this->pictures->removeElement($pictures)) {
-            // set the owning side to null (unless already changed)
             if ($pictures->getTrick() === $this) {
                 $pictures->setTrick(null);
             }
@@ -172,7 +171,6 @@ class Trick
     public function removeVideo(Video $video): self
     {
         if ($this->video->removeElement($video)) {
-            // set the owning side to null (unless already changed)
             if ($video->getTrick() === $this) {
                 $video->setTrick(null);
             }
@@ -223,7 +221,6 @@ class Trick
     public function removePost(Post $post): self
     {
         if ($this->posts->removeElement($post)) {
-            // set the owning side to null (unless already changed)
             if ($post->getTrick() === $this) {
                 $post->setTrick(null);
             }
