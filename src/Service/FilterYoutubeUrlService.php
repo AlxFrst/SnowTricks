@@ -5,7 +5,7 @@ namespace App\Service;
 
 use function PHPUnit\Framework\throwException;
 
-class YoutubeUrl
+class FilterYoutubeUrlService
 {
     public function __construct(protected IdExtractor $idExtractor)
     {
