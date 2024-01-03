@@ -40,7 +40,7 @@ class TrickController extends AbstractController
 
     #[Route('/new', name: 'app_trick_new', methods: ['GET', 'POST'])]
     #[IsGranted('ROLE_USER')]
-    public function new(Request $request, TrickRepository $trickRepository, SluggerInterface $slugger, YoutubeUrl $filterVideoLink): Response
+    public function new(Request $request, TrickRepository $trickRepository, SluggerInterface $slugger, FilterYoutubeUrlService $filterVideoLink): Response
     {
         $trick = new Trick();
         $form = $this->createForm(TrickType::class, $trick);

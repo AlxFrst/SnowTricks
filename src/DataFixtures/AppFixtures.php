@@ -179,8 +179,8 @@ class AppFixtures extends Fixture
 
         $userAdmin->setUsername('admin')
             ->setPassword($password)
-            ->setEmail('alexandreforestier1107@gmail.com')
-            ->setFullName('Alx')
+            ->setEmail('admin@admin.com')
+            ->setFullName('AlexAdmin')
             ->setLinkUserPicture('default.jpg')
             ->setRoles(array('ROLE_ADMIN'))
             ->setIsVerified(1);
@@ -192,8 +192,8 @@ class AppFixtures extends Fixture
 
         $user->setUsername('user')
             ->setPassword($password2)
-            ->setEmail('alexandreforestier1107@gmail.com')
-            ->setFullName('Alx')
+            ->setEmail('user@user.com')
+            ->setFullName('AlexUser')
             ->setLinkUserPicture('default.jpg')
             ->setRoles(array('ROLE_USER'))
             ->setIsVerified(1);
