@@ -1,13 +1,48 @@
-<nav class="bg-black p-4">
-    <div class="container mx-auto flex justify-between items-center">
-        <div class="flex items-center">
-            <a href="/" class="text-white text-lg font-semibold hover:text-gray-200">SnowTrick</a>
+<nav class="fixed-bottom bg-white border-t-2 border-gray-200 shadow-lg">
+    <div class="container mx-auto px-4 lg:px-5 flex justify-between items-center">
+        <a class="flex items-center text-xl font-semibold text-gray-800 hover:text-blue-600" href="{{ path('app_home') }}">
+            <i class="bi bi-snow2"></i>
+            <span class="ml-2">SnowTricks</span>
+        </a>
+        <button class="text-gray-500 focus:outline-none lg:hidden" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Basculer la navigation">
+            <i class="bi bi-list"></i>
+        </button>
+        <div class="hidden lg:flex flex-grow items-center" id="navbarSupportedContent">
+            <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
+                {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                    <li class="nav-item relative group">
+                        <a class="nav-link block py-2 px-4 lg:mx-2 text-base font-medium text-gray-700 hover:text-blue-600 cursor-pointer">Figures</a>
+                        <ul class="dropdown-menu absolute hidden group-hover:block bg-white shadow-md z-10">
+                            <li><a class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50" href="{{ path('app_trick_index') }}">Tableau de bord</a></li>
+                            <li><a class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50" href="{{ path('app_trick_new') }}">Nouvelle Figure</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item relative group">
+                        <a class="nav-link block py-2 px-4 lg:mx-2 text-base font-medium text-gray-700 hover:text-blue-600 cursor-pointer">Profil</a>
+                        <ul class="dropdown-menu absolute hidden group-hover:block bg-white shadow-md z-10">
+                            <li><a class="block py-2 px-4 text-sm text-gray-700 hover:bg-blue-50" href="{{ path('app_forgot_password_request') }}">Réinitialiser mon mot de passe</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link block py-2 px-4 lg:mx-2 text-base font-medium text-gray-700 hover:text-blue-600" href="{{ path('app_register') }}">S'inscrire</a>
+                    </li>
+                {% endif %}
+            </ul>
         </div>
-        <div class="flex space-x-4">
-            <a href="/" class="text-white hover:text-gray-200">Accueil</a>
-            <a href="/trick" class="text-white hover:text-gray-200">Figures</a>
-            <a href="/login" class="text-white hover:text-gray-200">Connexion</a>
-            <a href="/register" class="text-white hover:text-gray-200">Inscription</a>
+        <div class="hidden lg:block">
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <a class="py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700" href="{{ path('app_logout') }}">
+                    Se Déconnecter
+                    <i class="bi bi-box-arrow-right ml-1"></i>
+                </a>
+            {% else %}
+                <a class="py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700" href="{{ path('app_login') }}">
+                    Se Connecter
+                    <i class="bi bi-box-arrow-right ml-1"></i>
+                </a>
+            {% endif %}
         </div>
     </div>
 </nav>
