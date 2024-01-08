@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bonjour {{ app.user.username }}{% endblock %}
+
+{% block body %}
+    <div class="flex flex-col lg:flex-row justify-center items-center lg:items-start m-4 lg:m-8 h-screen">
+        <div class="flex flex-col items-center lg:items-start lg:w-1/4 mb-8 lg:mb-0">
+            <h5 class="text-lg font-semibold mb-4">Ma Photo</h5>
+            <img class="h-40 w-40 rounded-full object-cover"
+                 src="{{ asset('uploads/profiles/'~app.user.linkUserPicture) }}"
+                 alt="Photo de profil de {{ app.user.username }}" />
+        </div>
+        <div class="lg:w-1/2 text-center lg:text-left">
+            <h1 class="text-2xl font-bold mb-4">{{ app.user.username }} - Profil</h1>
+            <p class="mb-2">Nom complet : <span class="font-medium">{{ app.user.fullName }}</span></p>
+            <p class="mb-6">Email : <span class="font-medium">{{ app.user.email }}</span></p>
+            <div class="flex justify-center lg:justify-start">
+                {{ form(form, {'attr': {'class': 'w-full lg:w-auto'}}) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}
