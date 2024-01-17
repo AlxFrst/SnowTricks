@@ -119,46 +119,46 @@ class AppFixtures extends Fixture
     ];
 
     private static array $trickDescriptionArray = [
-        "An Ollie is probably the first snowboard trick you’ll learn. It’s your introduction to snowboard jumps. To perform an Ollie, you should shift your body weight to your back leg. Jump, making sure to lead with your front leg. Lift your back leg in line with your front.",
-        "The Nollie is basically the opposite of an Ollie. When you jump, lead with your back leg. Then, lift your front leg to bring your feet in line with each other. You’ll probably find that you can catch a few inches after just a few tries.",
-        "When you catch some snowboarding air, reach down and grab the heel side of the board between your feet. Congratulations, you’ve done your first Melon!",
-        "You can perform an Indy by doing an Ollie off of a jump and reaching down to grab your board’s toe edge. Let go and reposition yourself for a smooth landing.",
-        "If you can do a Melon and Indy, you’re ready for a nose grab. While in the air, reach down to grab the front of your board. Straighten your body and prepare for an easy landing.",
-        "The 50-50 introduces you to snowboard slide tricks. When you approach a rail or box, jump to land on it and ride it until you come off at the other end. Start with short rails until you build the balance you need to ride longer ones.",
-        "Practice the tail press on a flat surface where you feel comfortable. Get a little speed going before you lean backward to shift your weight to your back leg. You can lift your front leg to emphasize the bend in your snowboard.",
-        "The nose press works just like the tail press. Instead of leaning backward, you shift your weight forward. It can feel a little more intimidating at first, but it requires the same skill. The hardest part is overcoming anxiety to feel comfortable on your snowboard.",
-        "Ready to rotate your snowboard? With a frontside 180, you rotate your body so that your heels lead. For example, if you jump while riding downhill with your left foot forward, you would rotate in a counter counterclockwise motion for a frontside 180. Stop when your rear leg becomes your leading leg.",
-        "A backside 180 is the opposite of a frontside 180. Rotate so that your toes lead. When going downhill with your left leg forward, you would rotate in a clockwise motion until your right leg becomes your leading leg.",
-        "The butter takes a little more core strength than the frontside 180 and backside 180. Instead of bringing your back leg forward during a jump, you do it while maintaining contact with the snow. The snow creates a little more friction, so prepare to put some muscle into it.",
-        "The tripod is a fun intermediate trick to learn. To perform one, you need to lift one end of your board off the snow and reach down with both hands to contact the ground. When you do it correctly, you make a three-point connection with the ground, just like a tripod!",
-        "The next time you catch some air, reach back to grab the tail of your snowboard.",
-        "The boardslide is like a 50-50, except you turn your board perpendicular to the rail so you can slide down it sideways.",
-        "Take care when trying a backflip. You’ll need plenty of time and space to complete the flip before you land.",
-        "The full-circle version of a Frontside 180.",
-        "The full-circle version of a Backside 180.",
-        "The front roll moves your body in a forward motion, but it tilts a little to the side. Master it before moving on to a full front flip.",
-        "The front flip is harder than the backflip because you have to resist the upward motion you get from your jump. Instead, lean forward and tuck your body to rotate forward.",
-        "You probably already guessed. It’s a frontside rotation that turns you more than one full circle.",
-        "The opposite of a frontside 360+. Maintaining balance gets difficult when you move backward while spinning.",
+        "Un Ollie est probablement le premier trick de snowboard que vous apprendrez. C'est votre introduction aux sauts en snowboard. Pour réaliser un Ollie, vous devez déplacer votre poids corporel sur votre jambe arrière. Sautez, en veillant à commencer par votre jambe avant. Soulevez votre jambe arrière en alignement avec votre jambe avant.",
+        "Le Nollie est essentiellement l'opposé d'un Ollie. Lorsque vous sautez, commencez par votre jambe arrière. Ensuite, soulevez votre jambe avant pour aligner vos pieds. Vous trouverez probablement que vous pouvez gagner quelques centimètres après juste quelques essais.",
+        "Quand vous prenez de l'air en snowboard, penchez-vous et attrapez le côté talon de la planche entre vos pieds. Félicitations, vous avez réalisé votre premier Melon !",
+        "Vous pouvez réaliser un Indy en faisant un Ollie à partir d'un saut et en vous penchant pour attraper le bord des orteils de votre planche. Lâchez et repositionnez-vous pour un atterrissage en douceur.",
+        "Si vous pouvez faire un Melon et un Indy, vous êtes prêt pour un nose grab. Pendant que vous êtes en l'air, penchez-vous pour attraper l'avant de votre planche. Redressez votre corps et préparez-vous pour un atterrissage facile.",
+        "Le 50-50 vous initie aux tricks de glisse en snowboard. Quand vous approchez d'un rail ou d'une boîte, sautez pour atterrir dessus et glissez jusqu'à en sortir à l'autre extrémité. Commencez avec des rails courts jusqu'à ce que vous développiez l'équilibre nécessaire pour en glisser sur des plus longs.",
+        "Pratiquez le tail press sur une surface plate où vous vous sentez à l'aise. Prenez un peu de vitesse avant de vous pencher en arrière pour déplacer votre poids sur votre jambe arrière. Vous pouvez lever votre jambe avant pour accentuer la courbure de votre snowboard.",
+        "Le nose press fonctionne comme le tail press. Au lieu de vous pencher en arrière, vous déplacez votre poids vers l'avant. Cela peut sembler un peu plus intimidant au début, mais cela requiert la même compétence. La partie la plus difficile est de surmonter l'anxiété pour se sentir à l'aise sur son snowboard.",
+        "Prêt à faire tourner votre snowboard ? Avec un frontside 180, vous faites tourner votre corps de sorte que vos talons mènent. Par exemple, si vous sautez en descendant la pente avec votre pied gauche devant, vous tourneriez dans le sens antihoraire pour un frontside 180. Arrêtez-vous lorsque votre jambe arrière devient votre jambe de tête.",
+        "Un backside 180 est l'opposé d'un frontside 180. Tournez de sorte que vos orteils mènent. En descendant la pente avec votre jambe gauche devant, vous tourneriez dans le sens horaire jusqu'à ce que votre jambe droite devienne votre jambe de tête.",
+        "Le butter demande un peu plus de force du tronc que le frontside 180 et le backside 180. Au lieu de faire passer votre jambe arrière devant pendant un saut, vous le faites tout en maintenant le contact avec la neige. La neige crée un peu plus de friction, alors préparez-vous à y mettre du muscle.",
+        "Le tripod est un trick intermédiaire amusant à apprendre. Pour en réaliser un, vous devez soulever une extrémité de votre planche de la neige et vous pencher avec les deux mains pour toucher le sol. Quand vous le faites correctement, vous créez une connexion à trois points avec le sol, tout comme un trépied !",
+        "La prochaine fois que vous prenez de l'air, tendez la main pour attraper la queue de votre snowboard.",
+        "Le boardslide est comme un 50-50, sauf que vous tournez votre planche perpendiculairement au rail pour pouvoir glisser dessus de côté.",
+        "Faites attention en essayant un backflip. Vous aurez besoin de beaucoup de temps et d'espace pour compléter le flip avant d'atterrir.",
+        "La version cercle complet d'un Frontside 180.",
+        "La version cercle complet d'un Backside 180.",
+        "Le front roll déplace votre corps dans un mouvement vers l'avant, mais il s'incline un peu sur le côté. Maîtrisez-le avant de passer à un front flip complet.",
+        "Le front flip est plus difficile que le backflip car vous devez résister au mouvement ascendant que vous obtenez de votre saut. Au lieu de cela, penchez-vous en avant et recroquevillez votre corps pour tourner vers l'avant.",
+        "Vous l'avez probablement déjà deviné. C'est une rotation frontside qui vous fait tourner de plus d'un cercle complet.",
+        "L'opposé d'un frontside 360+. Maintenir l'équilibre devient difficile lorsque vous reculez tout en tournant.",
     ];
 
     private static array $PictureNameList = [
-        'php1F6E-632883706783a.jpg',
-        'php4C6E-645637fg6783a.jpg',
-        'php23C9-632544df34343.jpg',
-        'php24E79-3454356a6e1f.jpg',
-        'php29F7-632884fba6e1f.jpg',
-        'php29F8-632884fba83b9.jpg',
-        'php29F79-6324356a6e1f.jpg'
+        'figure1.jpg',
+        'figure2.jpg',
+        'figure3.jpg',
+        'figure4.jpg',
+        'figure5.jpg',
+        'figure6.jpg',
+        'figure7.jpg'
     ];
 
     private static array $videoLinkList = [
-        "LyfFuv4_wjQ",
+        "mBB7CznvSPQ",
         "SFYYzy0UF-8",
-        "GS9MMT_bNn8",
-        "Mr4tsSzsWOs",
-        "RUiWxRCAvLs",
-        "8M5MJO8Z4zw"
+        "PxhfDec8Ays",
+        "LyfFuv4_wjQ",
+        "oI-umOzNBME",
+        "L4bIunv8fHM"
     ];
 
 
