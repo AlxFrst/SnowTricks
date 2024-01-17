@@ -3,12 +3,23 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5c74b7abd7db494cb0b2191f9ec70381)](https://app.codacy.com/gh/AlxFrst/SnowTricks/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 ## Description
+SnowTricks est un site communautaire qui permet aux utilisateurs de partager leurs figures de snowboard. Les utilisateurs peuvent s'inscrire et se connecter au site. Ils peuvent
 
 ## Prérequis
+-  PHP 8.1
+-  Composer
+-  Symfony CLI
+-  Node.js
+-  Npm
+-  MySQL
 
 ## Installation
 1. Cloner le répertoir Github
 ```git clone https://github.com/AlxFrst/SnowTricks.git```
+
+2. Configurer le fichier .env avec vos informations de base de données et vos identifiants Google pour les emails
+```DATABASE_URL="mysql://user:password@host:port/database_name"```
+```MAILER_DSN=gmail://username:password@default?encryption=tls&auth_mode=oauth```
 
 2. Installer les dépendances
 ```composer install```
