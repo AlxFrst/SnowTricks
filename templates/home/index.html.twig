@@ -3,24 +3,59 @@
 {% block title %}Snowtricks - Accueil{% endblock %}
 
 {% block body %}
-    <header class="flex justify-center items-center bg-cover bg-center" 
-            style="background-image: url({{ asset('assets/heroBanner.jpg') }}); height: 95vh;">
+    <header class="flex justify-center items-center bg-gradient-to-r from-blue-500 to-purple-500" 
+            style="height: 95vh;">
         <div class="text-center">
-            <h1 class="text-4xl font-bold">SnowTricks</h1>
-            <p class="text-lg font-normal">Trouvez vos figures de snowboard</p>
+            <h1 class="text-6xl font-bold text-white">SnowTricks</h1>
+            <p class="text-xl font-light text-gray-300">Trouvez vos figures de snowboard</p>
         </div>
         <div id="btn-drop-section" class="absolute bottom-10">
-            <a href="#trick-container" class="text-white text-3xl">
+            <a href="#trick-container" class="text-2xl text-white hover:text-gray-300">
                 <i class="bi bi-arrow-down-short"></i>
             </a>
         </div>
     </header>
     <section class="flex flex-col m-4">
-        <div id="trick-container" class="flex flex-wrap justify-center">
-            {{ include('home/_trickList_partial.html.twig') }}
+        <div id="trick-container" class="flex flex-wrap justify-center gap-4">
+            {% for trick in tricks %}
+    <div class="m-3">
+        <div class="shadow-lg p-2 bg-white rounded-xl hover:shadow-xl transition duration-300" style="width: 208px;">
+            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                <div class="absolute top-2 right-2">
+                    <a class="badge bg-blue-500 hover:bg-blue-700 text-white rounded-full p-2" href="{{ path('app_trick_edit', { 'slug': trick.slug }) }}">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                    {% if trick.publicationStatusTrick == 'Published' %}
+                        <a class="badge bg-red-500 hover:bg-red-700 text-white rounded-full p-2 ml-2" href="{{ path('app_trick_status', { 'slug': trick.slug,'publicationStatus': 'Unpublished' }) }}"
+                           onclick="return confirm('Êtes-vous sûr de vouloir dépublier cette figure ?')">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    {% else %}
+                        <a class="badge bg-green-500 hover:bg-green-700 text-white rounded-full p-2 ml-2" href="{{ path('app_trick_status', { 'slug': trick.slug,'publicationStatus': 'Published' }) }}">
+                            <i class="bi bi-globe"></i>
+                        </a>
+                    {% endif %}
+                </div>
+            {% endif %}
+            <a href="{{ path('app_trick', { 'slug': trick.slug }) }}">
+                {% if trick.pictures[0].pictureLink %}
+                    <img class="border object-cover h-48 w-full rounded-t-lg" src="{{ asset('uploads/images/'~trick.pictures[0].pictureLink) }}" alt="{{ trick.pictures[0].pictureName }}"/>
+                {% else %}
+                    <img class="h-48 w-full rounded-t-lg" src="{{ asset('assets/heroBanner.jpg') }}" alt="Image par défaut"/>
+                {% endif %}
+            </a>
+            <div class="card-body text-center">
+                <a class="card-link text-lg font-semibold" href="{{ path('app_trick', { 'slug': trick.slug }) }}">
+                    <h5 class="my-2">{{ trick.name }}</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
         </div>
         <div class="text-center mt-4">
-            <button id="load-more" data-offset="{{ offset }}" class="btn btn-primary px-5">
+            <button id="load-more" data-offset="{{ offset }}" 
+                    class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg hover:shadow-xl transition duration-300">
                 Charger plus
             </button>
         </div>

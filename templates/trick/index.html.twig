@@ -3,16 +3,15 @@
 {% block title %}Index des Figures{% endblock %}
 
 {% block body %}
-    <div class="flex justify-center mt-4">
-
-        <div class="w-full lg:w-11/12 bg-white shadow-lg rounded-lg overflow-hidden">
-            <div class="px-6 py-4">
-                <h1 class="text-2xl font-semibold text-gray-800">Index des Figures</h1>
-                <a class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3" href="{{ path('app_trick_new') }}">Créer une nouvelle figure</a>
-            </div>
-            <div class="overflow-x-auto">
-                <table class="min-w-full leading-normal">
-                    <thead>
+<div class="flex justify-center mt-10">
+    <div class="w-full lg:w-11/12 bg-white shadow-xl rounded-lg overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-200">
+            <h1 class="text-3xl font-semibold text-gray-800">Index des Figures</h1>
+            <a class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3" href="{{ path('app_trick_new') }}">Créer une nouvelle figure</a>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="min-w-full leading-normal">
+                <thead>
                     <tr>
                         <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Nom</th>
                         <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Description</th>
@@ -21,33 +20,33 @@
                         <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Date de modification</th>
                         <th class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Actions</th>
                     </tr>
-                    </thead>
-                    <tbody>
-                    {% for trick in tricks %}
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ trick.name }}</td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ trick.description|u.truncate(40, '...') }}</td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ trick.publicationStatusTrick == 'Published' ? 'Publié' : 'Non publié' }}</td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ trick.createdAt ? trick.createdAt|date('Y-m-d') : '' }}</td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ trick.modifiedAt ? trick.modifiedAt|date('Y-m-d') : '' }}</td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <a class="text-blue-500 hover:text-blue-800" href="{{ path('app_trick', { 'slug': trick.slug }) }}">Afficher</a>
-                                <a class="text-blue-500 hover:text-blue-800 ml-4" href="{{ path('app_trick_edit', { 'slug': trick.slug }) }}">Modifier</a>
-                                {% if trick.publicationStatusTrick == 'Published' %}
-                                    <a class="text-red-500 hover:text-red-800 ml-4" href="{{ path('app_trick_status', { 'slug': trick.slug,'publicationStatus': 'Unpublished' }) }}">Dépublier</a>
-                                {% else %}
-                                    <a class="text-green-500 hover:text-green-800 ml-4" href="{{ path('app_trick_status', { 'slug': trick.slug,'publicationStatus': 'Published' }) }}">Publier</a>
-                                {% endif %}
-                            </td>
-                        </tr>
-                    {% else %}
-                        <tr>
-                            <td colspan="7" class="px-5 py-5 border-b border-gray-200 bg-white text-sm">Aucun enregistrement trouvé</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+                </thead>
+                <tbody>
+                {% for trick in tricks %}
+                    <tr class="hover:bg-gray-100">
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ trick.name }}</td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ trick.description|u.truncate(40, '...') }}</td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ trick.publicationStatusTrick == 'Published' ? 'Publié' : 'Non publié' }}</td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ trick.createdAt ? trick.createdAt|date('Y-m-d') : '' }}</td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">{{ trick.modifiedAt ? trick.modifiedAt|date('Y-m-d') : '' }}</td>
+                        <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                            <a class="text-blue-500 hover:text-blue-800" href="{{ path('app_trick', { 'slug': trick.slug }) }}">Afficher</a>
+                            <a class="text-blue-500 hover:text-blue-800 ml-4" href="{{ path('app_trick_edit', { 'slug': trick.slug }) }}">Modifier</a>
+                            {% if trick.publicationStatusTrick == 'Published' %}
+                                <a class="text-red-500 hover:text-red-800 ml-4" href="{{ path('app_trick_status', { 'slug': trick.slug,'publicationStatus': 'Unpublished' }) }}">Dépublier</a>
+                            {% else %}
+                                <a class="text-green-500 hover:text-green-800 ml-4" href="{{ path('app_trick_status', { 'slug': trick.slug,'publicationStatus': 'Published' }) }}">Publier</a>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="6" class="px-5 py-5 border-b border-gray-200 bg-white text-sm text-center">Aucun enregistrement trouvé</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 {% endblock %}
