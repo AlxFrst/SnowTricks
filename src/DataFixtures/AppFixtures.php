@@ -218,7 +218,7 @@ class AppFixtures extends Fixture
             for ($j = 1; $j <= rand(1, 6); $j++) {
                 $picture = new Pictures();
                 $picture->setPictureLink(self::$PictureNameList[rand(0,count(self::$PictureNameList)-1)])
-                    ->setPictureName("Nom de l'image n°" . $j . " de la figure n°" . $i)
+                    ->setPictureName("Image n°" . $j . "." )
                     ->setTrick($trick)
                     ->setUser($this->getReference(self::ADMIN_USER_REFERENCE));
                 $manager->persist($picture);
@@ -227,7 +227,7 @@ class AppFixtures extends Fixture
             for ($j = 1; $j <= rand(1, 3); $j++) {
                 $video = new Video();
                 $video->setVideoLink(self::$videoLinkList[rand(0,(count(self::$videoLinkList)-1))])
-                    ->setVideoName("Video n°" . $j . " de la figure n°" . $i)
+                    ->setVideoName("Video n°" . $j . ".")
                     ->setTrick($trick)
                     ->SetUser($this->getReference(AppFixtures::ADMIN_USER_REFERENCE));
                 $manager->persist($video);
@@ -236,7 +236,7 @@ class AppFixtures extends Fixture
 
             for ($j = 1; $j <= rand(5, 15); $j++) {
                 $post = new Post();
-                $post->setPostContent("Contenu du commentaire n°" . $j . " du trick n°" . $i)
+                $post->setPostContent("Contenu du commentaire n°" . $j . ".")
                     ->setTrick($trick)
                     ->SetUser($this->getReference(AppFixtures::ADMIN_USER_REFERENCE));
                 $manager->persist($post);

@@ -44,9 +44,9 @@ let request = new XMLHttpRequest();
 request.open("GET", "/nextTricks/" + offset);
 request.responseType = "text";
 request.send();
-loadBtn.innerHTML = "Loading ..."
+loadBtn.innerHTML = "Chargement...";
 request.onload = function () {
-loadBtn.innerHTML = "Load more"
+loadBtn.innerHTML = "Charger plus";
 let $html = request.response;
 
 if ($html.length === 0) {
