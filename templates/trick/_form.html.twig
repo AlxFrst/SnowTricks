@@ -1,0 +1,79 @@
+{{ form_start(form, {'attr': {'class': 'max-w-xl mx-auto p-4 bg-white shadow-lg rounded-lg'}}) }}
+<div class="mb-4">
+	{{ form_widget(form._token, {'attr': {'class': 'hidden'}}) }}
+	{{ form_errors(form) }}
+</div>
+<div class="mb-4">
+	{{ form_row(form.name, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500'}}) }}
+</div>
+<div class="mb-4">
+	{{ form_label(form.category, 'Category', {'attr': {'class': 'block text-gray-700 font-bold mb-2'}}) }}
+	<div class="grid grid-cols-2 gap-4">
+		{% for category in form.category %}
+			<div class="flex items-center">
+				<input type="checkbox" class="form-checkbox h-5 w-5 text-blue-600" id="{{ category.vars.id }}" name="{{ category.vars.full_name }}" {{ category.vars.checked ? 'checked' : '' }}>
+				<label for="{{ category.vars.id }}" class="ml-2">{{ category.vars.label }}</label>
+			</div>
+		{% endfor %}
+	</div>
+</div>
+
+
+
+
+<div class="mb-4">
+	{{ form_row(form.description, {'attr': {'class': 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500'}}) }}
+</div>
+<button type="button" class="btn btn-secondary btn-add m-2" id="add_picture" data-collection="#pictures">Ajouter une image</button>
+<div id="pictures" class="row py-2" data-collection="#pictures" data-prototype="{{ include('trick/_picture.html.twig', {'form': form.pictures.vars.prototype})|e('html_attr') }}" data-index="{{ form.pictures|length > 0 ? form.pictures|last.vars.name + 1 : 0 }}">
+	{% for picture in form.pictures %}
+		<div class="col-4 existing-item">
+			{{ include('trick/_picture.html.twig', {'form': picture}) }}
+			<button type="button" class="btn-remove">Remove</button>
+		</div>
+	{% endfor %}
+</div>
+<button type="button" class="btn btn-secondary mt-auto btn-add m-2" id="add_video" data-collection="#videos">Ajouter une vidéo</button>
+<div id="videos" class="row py-2" data-prototype="{{ include('trick/_video.html.twig', {'form': form.video.vars.prototype})|e('html_attr') }}" data-index="{{ form.video|length > 0 ? form.video|last.vars.name + 1 : 0 }}">
+	{% for video in form.video %}
+		<div class="col-4 existing-item ml-1">
+			{{ include('trick/_video.html.twig', {'form': video}) }}
+		</div>
+	{% endfor %}
+</div>
+<button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full m-2 mt-auto">{{ button_label|default('Créer') }}</button>
+{{ form_end(form, {'render_rest': false}) }}
+
+{% block javascripts %}
+	<script>
+	$(document).ready(function() {
+    if (document.querySelectorAll(".btn-add")) {
+
+        const addItem = (e) => {
+            const collectionHolder = document.querySelector(e.currentTarget.dataset.collection);
+
+            const item = document.createElement("div");
+            item.classList.add("col-4");
+
+            item.innerHTML = collectionHolder.dataset.prototype.replace(/__name__/g, collectionHolder.dataset.index);
+
+            item.querySelector('.btn-remove').addEventListener("click", () => item.remove());
+
+            collectionHolder.appendChild(item);
+            collectionHolder.dataset.index++;
+        }
+
+        document.querySelectorAll('.btn-add').forEach(btn => btn.addEventListener('click', addItem));
+
+        document
+            .querySelectorAll('.btn-remove')
+            .forEach(
+                btn => btn.addEventListener(
+                    "click",
+                    (e) => console.log(e.currentTarget.closest('.existing-item').remove())
+                )
+            );
+    }
+});
+</script>
+{% endblock %}

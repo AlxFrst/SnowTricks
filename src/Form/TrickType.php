@@ -25,14 +25,17 @@ class TrickType extends AbstractType
                 'class' => Category::class,
                 'multiple' => true,
                 'expanded' => true,
+                'label' => 'Catégorie',
             ])
-            ->add('description', TextareaType::class )
+            ->add('description', TextareaType::class, [
+                'label' => 'Description de la figure',
+            ])
             ->add('pictures', CollectionType::class,[
                 'entry_type' => PictureType::class,
                 'by_reference' => false,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'error_bubbling' => false
+                'error_bubbling' => false,
           ])
             ->add('video',CollectionType::class,[
             'entry_type' => VideoType::class,

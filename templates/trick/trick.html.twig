@@ -1,121 +1,103 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Figure{% endblock %}
+{% block title %}Trick
+{% endblock %}
 
 {% block body %}
-    <!-- En-tête -->
-    {% set bgImage = "" %}
-    {% for picture in trick.pictures %}
-        {% if trick.pictures[0].pictureLink %}
-            {% set bgImage = asset('uploads/images/'~trick.pictures[0].pictureLink) %}
-        {% else %}
-            {% set bgImage = asset('assets/heroBanner.jpg') %}
-        {% endif %}
-    {% endfor %}
+	<!-- Header -->
+	{% set bgImage = '' %}
+	{% for picture in trick.pictures %}
+		{% if trick.pictures[0].pictureLink %}
+			{% set bgImage = asset('uploads/images/'~trick.pictures[0].pictureLink) %}
+		{% else %}
+			{% set bgImage = asset('assets/heroBanner.jpg') %}
+		{% endif %}
+	{% endfor %}
 
-    <div class="container mx-auto p-4">
-        <header id="header-image" class="bg-cover bg-center">
-            <div class="flex justify-center items-center h-full">
-                <div class="text-center text-white">
-                    <h1 class="text-4xl font-bold text-black">{{ trick.name }}</h1>
-                </div>
-            </div>
-        </header>
+	<div class="container mx-auto">
+		<header id="header-image" class="bg-dark" style="background-image: url({{ bgImage }}); background-position: center; background-size: cover;">
+			<div class="flex h-full">
+				<div class="w-1/4"></div>
+				<div class="w-1/2 self-center text-center text-white">
+					<h1 class="text-4xl font-bold" style="text-shadow: 0px 2px 4px rgba(0,0,0,0.3);">{{ trick.name }}</h1>
+				</div>
+				<div id="btn-edition" class="w-1/4 self-start text-end">
+					{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+						<a class="btn btn-dark text-white m-1" href="{{ path('app_trick_edit', { 'slug': trick.slug }) }}">
+							<i class="bi bi-pencil"></i>
+						</a>
+						{% if trick.publicationStatusTrick == 'Published' %}
+							<a class="btn btn-dark bg-dark text-white m-1" href="{{ path('app_trick_status', { 'slug': trick.slug,'publicationStatus': 'Unpublished' }) }}" onclick="return confirm('are you sure you want to unpublish this trick ?')">
+								<i class="bi bi-trash"></i>
+							</a>
+						{% else %}
+							<a class="btn btn-dark bg-dark text-white m-1" href="{{ path('app_trick_status', { 'slug': trick.slug,'publicationStatus': 'Published' }) }}">
+								<i class="bi bi-globe"></i>
+							</a>
+						{% endif %}
+					{% endif %}
+				</div>
+			</div>
+		</header>
 
-        <!-- Médias -->
-        <section id="box-media" class="hidden lg:flex flex-wrap justify-around items-center m-4">
-            {% for picture in trick.pictures %}
-                <div class="max-w-sm rounded overflow-hidden shadow-lg m-2">
-                    <img class="w-full" src="{{ asset('uploads/images/'~picture.pictureLink) }}" alt="{{ picture.pictureName }}">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">{{ picture.pictureName }}</div>
-                    </div>
-                </div>
-            {% endfor %}
+		<!-- Media Section -->
+		<section id="box-media" class="flex flex-wrap justify-around items-center m-4">
+			{% for picture in trick.pictures %}
+				<div class="card m-2 p-2 rounded-lg shadow-lg" style="width: 250px;">
+					<img class="card-img-top" src="{{ asset('uploads/images/'~picture.pictureLink) }}" alt="{{ picture.pictureName }}" style="height: 161px; object-fit: cover;"/>
+					<div class="card-footer p-2 bg-transparent">
+						<p class="text-center">{{ picture.pictureName }}</p>
+					</div>
+				</div>
+			{% endfor %}
 
-            {% for video in trick.video %}
-                <div class="max-w-sm rounded overflow-hidden shadow-lg m-2">
-                    <iframe class="w-full h-48" src="https://www.youtube.com/embed/{{ video.videoLink }}" title="Vidéo YouTube" allowfullscreen></iframe>
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">{{ video.videoName }}</div>
-                    </div>
-                </div>
-            {% endfor %}
-        </section>
+			{% for video in trick.video %}
+				<div class="card m-2 shadow-lg" style="width: 250px;">
+					<iframe width="250" height="161" src="https://www.youtube.com/embed/{{ video.videoLink }}" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+					<div class="card-footer p-4 bg-transparent">
+						<div class="text-center">{{ video.videoName }}</div>
+					</div>
+				</div>
+			{% endfor %}
+		</section>
 
-        <div class="text-center m-3">
-            <button id="btn-media" class="lg:hidden bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Afficher les médias</button>
-        </div>
+		<!-- Description and Other Details -->
+		<div class="container p-4 m-2 shadow border bg-white">
+			<div>
+				<p>Créé le
+					{{ trick.createdAt ? trick.createdAt|date('Y-m-d') : '' }}; Dernière mise à jour le
+					{{ trick.modifiedAt ? trick.modifiedAt|date('Y-m-d') : '' }}</p>
+			</div>
+			<div>
+				<h5 class="font-semibold">Description :</h5>
+				<p>{{ trick.description }}</p>
+			</div>
+			<div class="flex flex-wrap">
+				<h5 class="font-semibold">Catégorie :</h5>
+				{% for category in trick.category %}
+					<div class="mx-4 px-3 py-1 border border-info shadow bg-light">{{ category.name }}</div>
+				{% endfor %}
+			</div>
+		</div>
 
-        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-            <div class="mb-4"><p>Créé le : {{ trick.createdAt ? trick.createdAt|date('Y-m-d') : '' }}; Dernière modification : {{ trick.modifiedAt ? trick.modifiedAt|date('Y-m-d') : '' }}</p></div>
-            <div class="mb-4">
-                <h5 class="font-bold">Description :</h5>
-                <p>{{ trick.description }}</p>
-            </div>
-            <div class="flex flex-wrap">
-                <h5 class="font-bold mr-2">Catégorie :</h5>
-                {% for category in trick.category %}
-                    <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full shadow-sm m-1">{{ category.name }}</div>
-                {% endfor %}
-            </div>
-        </div>
-
-        <div class="text-center">
-            <a class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded" href="{{ path('app_trick_index') }}">Retour à la liste</a>
-        </div>
-
-        <h5 class="font-bold mt-4">Commentaires :</h5>
-        {% if is_granted('ROLE_USER') %}
-            {{ form_start(form) }}
-            {{ form_row(form.postContent) }}
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">
-                Laisser un commentaire
-            </button>
-            {{ form_end(form) }}
-        {% endif %}
-        <ul id="post-container" class="list-group">
-            {{ include('trick/_postList.html.twig') }}
-        </ul>
-        <div class="text-center">
-            <button id="load-more-posts" data-slug="{{ trick.slug }}" data-offsetpost="{{ offsetpost }}"
-                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded my-2">
-                Charger plus
-            </button>
-        </div>
-    </div>
-{% verbatim %}
-	<script>
-		$(document).ready(function () {
-if (document.getElementById("load-more-posts")) {
-const loadPostBtn = document.getElementById("load-more-posts");
-let offsetPost = parseInt(loadPostBtn.dataset.offsetpost, 10);
-let slug = loadPostBtn.dataset.slug;
-
-loadPostBtn.addEventListener("click", function (e) {
-e.preventDefault();
-const container = $("#post-container");
-offsetPost = parseInt(loadPostBtn.dataset.offsetpost, 10);
-let request = new XMLHttpRequest();
-request.open('GET', "/trick/" + slug + "/nextposts/" + offsetPost);
-request.responseType = "text";
-request.send();
-loadPostBtn.innerHTML = "Chargement...";
-request.onload = function () {
-loadPostBtn.innerHTML = "Charger plus";
-let $html = request.response;
-
-if ($html.length === 0) {
-loadPostBtn.remove();
-} else {
-container.append($html);
-loadPostBtn.dataset.offsetpost = (offsetPost + 5).toString();
-}
-}
-});
-}
-});
-	</script>
-{% endverbatim %}
-
+		<!-- Comments Section -->
+		<div class="text-center m-3">
+			<a class="btn btn-outline-dark" href="{{ path('app_trick_index') }}">Retour à la liste</a>
+		</div>
+		<h5 class="font-semibold">Commentaires :</h5>
+		{% if is_granted('ROLE_USER') %}
+			{{ form_start(form) }}
+			{{ form_row(form.postContent) }}
+			<button class="btn btn-primary" type="submit">Laisser un commentaire</button>
+			{{ form_end(form) }}
+		{% endif %}
+		<br>
+		<ul id="post-container" class="list-group">
+			{{ include('trick/_postList.html.twig') }}
+		</ul>
+		<div class="text-center">
+			<button id="load-more-posts" data-slug="{{ trick.slug }}" data-offsetpost="{{ offsetpost }}" class="btn btn-primary my-2">Charger plus</button>
+		</div>
+	</div>
 {% endblock %}
+

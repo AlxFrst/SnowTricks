@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Trick
+{% endblock %}
+
+{% block body %}
+	<div class="row justify-content-center">
+
+		<div class="col-12 col-lg-8 p-5 shadow bg-white">
+			<h1>Edit Trick</h1>
+
+			{{ include('trick/_form.html.twig', {'button_label': 'Update'}) }}
+
+			<a class="btn btn-lg btn-primary" href="{{ path('app_trick_index') }}">back to list</a>
+
+			{{ include('trick/_delete.html.twig') }}
+		</div>
+	</div>
+{% endblock %}
