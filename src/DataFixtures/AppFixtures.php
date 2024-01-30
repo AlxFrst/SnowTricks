@@ -21,10 +21,6 @@ class AppFixtures extends Fixture
 
     private static array $categoryNameArray = [
         "Nose grab",
-        "Japan",
-        "Seat belt",
-        "Truck driver",
-        "Rotation",
         "180",
         "360",
         "540",
@@ -46,10 +42,6 @@ class AppFixtures extends Fixture
 
     private static array $categorySlugArray = [
         "nose-grab",
-        "japan",
-        "seat-belt",
-        "truck-driver",
-        "rotation",
         "180",
         "360",
         "540",
@@ -115,7 +107,6 @@ class AppFixtures extends Fixture
         "front-flip",
         "frontside-360",
         "backside-290",
-
     ];
 
     private static array $trickDescriptionArray = [
