@@ -17,13 +17,13 @@ class FilterYoutubeUrlService
             $regExp = "/(\\w|-|_)+/";
             preg_match($regExp, $videoLink, $matches);
             if (!$matches) {
-                throw new \RuntimeException("the youtube ID is not valid");
+                throw new \RuntimeException("L'url n'est pas valide");
             }
             return $videoLink;
         }
         $videoLinkID = $this->idExtractor->getId($videoLink);
         if (null === $videoLinkID) {
-            throw new \RuntimeException("the youtube url is not valid");
+            throw new \RuntimeException("L'url n'est pas valide");
         }
         return $videoLinkID;
 
