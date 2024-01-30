@@ -240,7 +240,7 @@ class TrickController extends AbstractController
 
         $posts = $postRepository->findBy(['trick' => $trick], ['created_at' => 'DESC'], 5, $offsetPost);
 
-        return $this->render('trick/_postList_partial.html.twig', [
+        return $this->render('trick/_postList.html.twig', [
             'posts' => $posts
         ]);
     }
