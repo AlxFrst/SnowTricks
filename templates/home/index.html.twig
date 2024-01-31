@@ -18,8 +18,7 @@
 	<section class="flex flex-col m-4">
 		<div id="trick-container" class="flex flex-wrap justify-center gap-4">
 			<h2 class="text-3xl font-bold text-center w-full">Les figures</h2>
-{{ include('home/_trickList_partial.html.twig') }}
-
+			{{ include('home/_trickList_partial.html.twig') }}
 		</div>
 		<div class="text-center mt-4">
 			<button id="load-more" data-offset="{{ offset }}" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg hover:shadow-xl transition duration-300">
@@ -31,6 +30,6 @@
 
 {% block javascripts %}
 	{{ parent() }}
-{{ encore_entry_script_tags('loadMoreTricks') }}
+	{{ encore_entry_script_tags('loadMoreTricks') }}
 
 {% endblock %}
