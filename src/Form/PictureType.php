@@ -27,9 +27,15 @@ class PictureType extends AbstractType
                             'image/jpeg',
                         ],
                         'mimeTypesMessage' => 'Merci de choisir un fichier jpg',
-                    ])
+                    ]),
             ]])
-            ->add('pictureName',TextType::class)
+            ->add('pictureName',TextType::class,[
+                'label' => "Nom de l'image: ",
+                'required' => false,
+                'attr' => [
+                    'placeholder' => "Nom de l'image"
+                ]
+            ])
         ;
     }
 
