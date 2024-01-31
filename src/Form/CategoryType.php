@@ -14,25 +14,24 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, 
-            [
+            ->add('name', TextType::class, [
                 'label' => 'Nom de la catégorie',
                 'attr' => [
+                    'class' => 'border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm',
                     'placeholder' => 'Nom de la catégorie'
                 ]
             ])
-            ->add('parent', null, 
-            [
+            ->add('parent', null, [ // Remplacez null par le type de champ approprié
                 'label' => 'Catégorie parente',
                 'attr' => [
+                    'class' => 'border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm',
                     'placeholder' => 'Catégorie parente'
                 ]
             ])
-            ->add('add', SubmitType::class, 
-            [
+            ->add('add', SubmitType::class, [
                 'label' => 'Ajouter',
                 'attr' => [
-                    'class' => 'btn btn-primary'
+                    'class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
                 ]
             ])
         ;
