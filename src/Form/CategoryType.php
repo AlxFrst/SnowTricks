@@ -14,27 +14,29 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name', TextType::class, [
-                'label' => 'Nom de la catégorie',
-                'attr' => [
-                    'class' => 'border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm',
-                    'placeholder' => 'Nom de la catégorie'
-                ]
-            ])
-            ->add('parent', null, [ // Remplacez null par le type de champ approprié
-                'label' => 'Catégorie parente',
-                'attr' => [
-                    'class' => 'border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm',
-                    'placeholder' => 'Catégorie parente'
-                ]
-            ])
-            ->add('add', SubmitType::class, [
-                'label' => 'Ajouter',
-                'attr' => [
-                    'class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
-                ]
-            ])
-        ;
+->add('name', TextType::class, [
+    'label' => 'Nom de la catégorie ',
+    'attr' => [
+        'class' => 'bg-gray-50 border border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm',
+        'placeholder' => '360, Flip, Grab, ...'
+    ]
+])
+->add('parent', null, [ // Assumant que c'est un EntityType pour la catégorie parente
+    'class' => Category::class, // Remplacez Category::class par la classe de votre entité de catégorie
+    'choice_label' => 'name', // Assumant que 'name' est le champ à afficher des entités de catégorie
+    'label' => 'Référence ',
+    'attr' => [
+        'class' => 'bg-gray-50 border border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm',
+        'placeholder' => 'Sélectionnez une catégorie parente'
+    ]
+])
+->add('add', SubmitType::class, [
+    'label' => 'Ajouter',
+    'attr' => [
+        'class' => 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'
+    ]
+]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void

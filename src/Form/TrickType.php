@@ -21,12 +21,13 @@ class TrickType extends AbstractType
             ->add('name', null, [
                 'label' => "Nom de la figure",
                 'attr' => [
-                    'class' => 'w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500',
-                    'placeholder' => 'Nom de la figure',
+                    'class' => 'w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500',
+                    'placeholder' => '360, Flip, Grab, ...',
                 ],
             ])
             ->add('category', EntityType::class, [
                 'class' => Category::class,
+                'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => true,
                 'label' => 'Catégorie',
@@ -34,8 +35,8 @@ class TrickType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => 'Description de la figure',
                 'attr' => [
-                    'class' => 'w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500',
-                    'placeholder' => 'Description de la figure',
+                    'class' => 'w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500',
+                    'placeholder' => "C'est une figure de ...",
                     'rows' => '4',
                 ],
             ])
@@ -46,6 +47,10 @@ class TrickType extends AbstractType
                 'allow_add' => true,
                 'allow_delete' => true,
                 'error_bubbling' => false,
+                'attr' => [
+                    'class' => 'space-y-2',
+                ],
+                // Ajoutez les options pour les champs de l'entry_type si nécessaire
             ])
             ->add('video', CollectionType::class, [
                 'label' => 'Ajouter des vidéos',
@@ -53,9 +58,13 @@ class TrickType extends AbstractType
                 'by_reference' => false,
                 'allow_add' => true,
                 'allow_delete' => true,
-                'error_bubbling' => false
-            ])
-        ;
+                'error_bubbling' => false,
+                'attr' => [
+                    'class' => 'space-y-2',
+                ],
+                // Ajoutez les options pour les champs de l'entry_type si nécessaire
+            ]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver): void
