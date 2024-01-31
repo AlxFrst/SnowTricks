@@ -1,35 +1,16 @@
 {% extends 'base.html.twig' %}
-{% form_theme form 'bootstrap_5_layout.html.twig' %}
-{% block title %}
-	Ajouter un nouveau trick
+
+{% block title %}New Trick
 {% endblock %}
 
 {% block body %}
-	<div class="container">
-		<h1 class="form_title display-2">New trick</h1>
+	<div class="row justify-content-center">
 
-		{{ form_start(form) }}
-		{{ form_row(form.title) }}
-		{{ form_row(form.category) }}
-		{{ form_row(form.description) }}
-		<div class="row adding_file">
-			<div class="col-lg col-xl" id="image">
-				{{ form_row(form.images) }}
-				<span class="text-center"></span>
-			</div>
-			<div class="col-lg col-xl" id="video" data-prototype="{{ form_row(form.videos.vars.prototype)|e('html_attr') }}">
-				{{ form_row(form.videos) }}
-				<span id="video_span" class="text-center py-2"></span>
-			</div>
+		<div class="col-12 col-lg-8 p-5 shadow bg-white">
+			<h1>Create new Trick</h1>
+			{{ include('trick/_form.html.twig') }}
+
+			<a class="btn btn-outline-dark m-2" href="{{ path('app_trick_index') }}">back to list</a>
 		</div>
-		<div class="mt-5 text-center">
-			<button class="btn btn-primary">{{ button_label|default('Add') }}</button>
-		</div>
-		{{ form_end(form) }}
 	</div>
-{% endblock %}
-
-{% block javascripts %}
-	{{ parent() }}
-	{{ encore_entry_script_tags('trick_add') }}
 {% endblock %}

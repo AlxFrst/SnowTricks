@@ -39,20 +39,22 @@ class TrickType extends AbstractType
                     'rows' => '4',
                 ],
             ])
-            ->add('pictures', CollectionType::class,[
+            ->add('pictures', CollectionType::class, [
+                'label' => 'Ajouter des images',
                 'entry_type' => PictureType::class,
                 'by_reference' => false,
                 'allow_add' => true,
                 'allow_delete' => true,
                 'error_bubbling' => false,
-          ])
-            ->add('video',CollectionType::class,[
-            'entry_type' => VideoType::class,
+            ])
+            ->add('video', CollectionType::class, [
+                'label' => 'Ajouter des vidéos',
+                'entry_type' => VideoType::class,
                 'by_reference' => false,
                 'allow_add' => true,
-                'allow_delete'=> true,
+                'allow_delete' => true,
                 'error_bubbling' => false
-          ])
+            ])
         ;
     }
 

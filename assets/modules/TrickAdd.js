@@ -1,5 +1,6 @@
 let collection, collectionVideos, boutonAjoutVideos, spanVideo, trickvideo
 
+console.log("TrickAdd.js chargé");
 
 window.onload = () => {
     // Gestion de l'ajout / modification / suppression des liens vidéos
