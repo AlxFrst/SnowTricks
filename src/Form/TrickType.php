@@ -21,7 +21,7 @@ class TrickType extends AbstractType
             ->add('name', null, [
                 'label' => "Nom de la figure",
                 'attr' => [
-                    'class' => 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500',
+                    'class' => 'w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500',
                     'placeholder' => 'Nom de la figure',
                 ],
             ])
@@ -30,15 +30,13 @@ class TrickType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
                 'label' => 'Catégorie',
-                'choice_attr' => function ($category) {
-                    return ['class' => 'mr-4 mb-2 p-2 rounded-lg border border-gray-300 hover:bg-gray-100'];
-                },
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Description de la figure',
                 'attr' => [
-                    'class' => 'w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500',
+                    'class' => 'w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500',
                     'placeholder' => 'Description de la figure',
+                    'rows' => '4',
                 ],
             ])
             ->add('pictures', CollectionType::class,[
