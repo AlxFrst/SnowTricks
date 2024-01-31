@@ -1,45 +1,37 @@
-// Generator of new form to add a trick's picture or video
-document.addEventListener('DOMContentLoaded', function () {
-    console.log('DOM fully loaded and parsed');
+$(document).ready(function () {
+    if (document.querySelectorAll(".btn-add")) {
 
-    const addNewItem = (e) => {
-        const collectionHolder = document.querySelector(e.currentTarget.dataset.collection);
-        const item = document.createElement("div");
-        item.classList.add("w-1/3", "p-2", "existing-item");
+        const addItem = (e) => {
+            console.log("Hello");
+            const collectionHolder = document
+                .querySelector(e.currentTarget.dataset.collection);
 
-        item.innerHTML = collectionHolder.dataset.prototype.replace(/__name__/g, collectionHolder.dataset.index);
+            const item = document.createElement("div");
+            item.classList.add("col-4");
 
-        // Ajouter le nouvel élément
-        collectionHolder.appendChild(item);
-        collectionHolder.dataset.index++;
+            item.innerHTML = collectionHolder
+                .dataset
+                .prototype
+                .replace(/__name__/g, collectionHolder.dataset.index);
 
-        // Ajouter l'écouteur sur le bouton supprimer du nouvel élément
-        item.querySelector('.btn-remove').addEventListener("click", function () { item.remove(); });
-    };
+            item.querySelector('.btn-remove').addEventListener("click", () => item.remove());
 
-    const addClickEventToRemoveButtons = () => {
-        document.querySelectorAll('.btn-remove').forEach(btn => {
-            btn.removeEventListener("click", removeItem); // Éviter les écouteurs multiples
-            btn.addEventListener("click", removeItem);
-        });
-    };
+            collectionHolder.appendChild(item);
+            collectionHolder.dataset.index++;
 
-    const removeItem = (e) => {
-        e.currentTarget.closest('.existing-item').remove();
-    };
+        }
 
-    // Ajouter des écouteurs aux boutons d'ajout existants
-    document.querySelectorAll('.btn-add').forEach(btn => {
-        btn.addEventListener('click', addNewItem);
-    });
+        document.querySelectorAll('.btn-add').forEach(btn => btn.addEventListener('click', addItem));
 
-    // Ajouter des écouteurs aux boutons de suppression existants
-    addClickEventToRemoveButtons();
-
-    // Fonction pour ré-appliquer les écouteurs sur les nouveaux éléments
-    document.querySelectorAll('.btn-add').forEach(btn => {
-        btn.addEventListener('click', function () {
-            addClickEventToRemoveButtons();
-        });
-    });
+        document
+            .querySelectorAll('.btn-remove')
+            .forEach(
+                btn => btn.addEventListener(
+                    "click",
+                    (e) => console.log(e.currentTarget
+                        .closest('.existing-item')
+                        .remove())
+                )
+            );
+    }
 });

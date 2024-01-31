@@ -16,7 +16,9 @@ class VideoType extends AbstractType
             ->add('videoLink', TextType::class, [
                 'label' => "Lien de la vidéo (youtube)",
             ])
-            ->add('videoName')
+            ->add('videoName', TextType::class, [
+                'label' => "Nom de la vidéo",
+            ])
             ->add('trick')
             ->add('user')
         ;
