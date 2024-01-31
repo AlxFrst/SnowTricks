@@ -9,14 +9,12 @@
 		<div class="col-12 col-lg-8 p-5 shadow bg-white">
 			<h1>Create new Trick</h1>
 			{{ include('trick/_form.html.twig') }}
-
-<a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-lg mt-5 inline-block" href="{{ path('app_trick_index') }}">Retour à la liste</a>
-
+			<a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-lg mt-5 inline-block" href="{{ path('app_trick_index') }}">Retour à la liste</a>
 		</div>
 	</div>
 {% endblock %}
 
 {% block javascripts %}
 	{{ parent() }}
-	{{ encore_entry_script_tags('addTrick') }}
+	{{ encore_entry_script_tags('trickAdd') }}
 {% endblock %}
