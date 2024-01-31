@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bonjour
-	{{ app.user.username }}
-{% endblock %}
+{% block title %}SnowTricks - Profil de {{ app.user.username }} {% endblock %}
 
 {% block body %}
 	<div class="flex flex-col lg:flex-row justify-center items-center lg:items-start m-4 lg:m-8 h-screen">
