@@ -61,24 +61,26 @@
 			{% endfor %}
 		</section>
 
-		<!-- Description and Other Details -->
-		<div class="container p-4 m-2 shadow border bg-white">
-			<div>
-				<p>Créé le
-					{{ trick.createdAt ? trick.createdAt|date('Y-m-d') : '' }}; Dernière mise à jour le
-					{{ trick.modifiedAt ? trick.modifiedAt|date('Y-m-d') : '' }}</p>
-			</div>
-			<div>
-				<h5 class="font-semibold">Description :</h5>
-				<p>{{ trick.description }}</p>
-			</div>
-			<div class="flex flex-wrap">
-				<h5 class="font-semibold">Catégorie :</h5>
-				{% for category in trick.category %}
-					<div class="mx-4 px-3 py-1 border border-info shadow bg-light">{{ category.name }}</div>
-				{% endfor %}
-			</div>
-		</div>
+<!-- Description and Other Details -->
+<div class="container p-4 m-2 shadow-md border bg-white rounded-lg">
+	<div>
+		<p class="text-gray-600">Créé le
+			{{ trick.createdAt ? trick.createdAt|date('Y-m-d') : 'Non disponible' }}; Dernière mise à jour le
+			{{ trick.modifiedAt ? trick.modifiedAt|date('Y-m-d') : 'Non disponible' }}</p>
+	</div>
+	<div>
+		<h5 class="font-semibold mb-2">Description :</h5>
+		<p class="text-gray-800">{{ trick.description }}</p>
+	</div>
+	<div class="flex flex-wrap items-center mt-4">
+		<h5 class="font-semibold mr-2">Catégorie :</h5>
+		{% for category in trick.category %}
+			<div class="mx-1 px-3 py-1 bg-blue-100 text-blue-800 rounded-full shadow-sm">{{ category.name }}</div>
+		{% endfor %}
+	</div>
+</div>
+
+
 
 		<!-- Comments Section -->
 		<div class="text-center m-3">
