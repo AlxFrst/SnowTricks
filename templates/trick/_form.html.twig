@@ -8,7 +8,7 @@
 {{ form_row(form.description) }}
 <button type="button" class="btn btn-secondary btn-add m-2" id="add_picture" data-collection="#pictures">Ajouter une image
 </button>
-<div id="pictures" class="row py-2 justify-content-center" data-prototype="{{ include( 'trick/_picture.html.twig', {form: form.pictures.vars.prototype})|e(" html_attr") }}" data-index="{{ form.pictures|length > 0 ? form.pictures|last.vars.name + 1 : 0 }}">
+<div id="pictures" class="row py-2 justify-content-center" data-prototype="{{ include( 'trick/_picture.html.twig', {form: form.pictures.vars.prototype})|e("html_attr") }}" data-index="{{ form.pictures|length > 0 ? form.pictures|last.vars.name + 1 : 0 }}">
 	{% for picture in form.pictures %}
 		<div class="col-4 existing-item">
 			{{ include('trick/_picture.html.twig', {form: picture}) }}
@@ -17,7 +17,7 @@
 </div>
 <button type="button" class="btn btn-secondary mt-auto btn-add m-2" id="add_video" data-collection="#videos">Ajouter une vidéo
 </button>
-<div id="videos" class="row py-2" data-prototype="{{ include( 'trick/_video.html.twig', {form: form.video.vars.prototype})|e(" html_attr") }}" data-index="{{ form.video|length > 0 ? form.video|last.vars.name + 1 : 0 }}">
+<div id="videos" class="row py-2" data-prototype="{{ include( 'trick/_video.html.twig', {form: form.video.vars.prototype})|e("html_attr") }}" data-index="{{ form.video|length > 0 ? form.video|last.vars.name + 1 : 0 }}">
 
 	{% for video in form.video %}
 		<div class="col-4 existing-item ml-1">
