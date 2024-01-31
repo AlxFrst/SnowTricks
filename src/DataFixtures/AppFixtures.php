@@ -205,7 +205,7 @@ class AppFixtures extends Fixture
         $manager->flush();
 
 
-        for ($i = 0; $i < (count(self::$categoryNameArray) - 1) ; $i++) {
+        for ($i = 0; $i < (count(self::$categoryNameArray) - 1); $i++) {
             $trick = new Trick();
             $trick->setName(self::$trickNameArray[$i])
                 ->setSlug(self::$trickSlugArray[$i])
