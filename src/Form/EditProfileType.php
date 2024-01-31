@@ -17,6 +17,7 @@ class EditProfileType extends AbstractType
         $builder
             ->add('email', null, [
                 'label' => 'Email',
+                'disabled' => true,
                 'attr' => [
                     'placeholder' => 'Email',
                     'class' => 'w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500',
@@ -24,6 +25,7 @@ class EditProfileType extends AbstractType
             ])
             ->add('fullName', null, [
                 'label' => 'Nom complet',
+                'disabled' => true,
                 'attr' => [
                     'placeholder' => 'Nom complet',
                     'class' => 'w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500',
