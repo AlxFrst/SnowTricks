@@ -21,6 +21,10 @@ class AppFixtures extends Fixture
 
     private static array $categoryNameArray = [
         "Nose grab",
+        "Japan",
+        "Seat belt",
+        "Truck driver",
+        "Rotation",
         "180",
         "360",
         "540",
@@ -42,6 +46,10 @@ class AppFixtures extends Fixture
 
     private static array $categorySlugArray = [
         "nose-grab",
+        "japan",
+        "seat-belt",
+        "truck-driver",
+        "rotation",
         "180",
         "360",
         "540",
@@ -217,8 +225,8 @@ class AppFixtures extends Fixture
 
             for ($j = 1; $j <= rand(1, 6); $j++) {
                 $picture = new Pictures();
-                $picture->setPictureLink(self::$PictureNameList[rand(0,count(self::$PictureNameList)-1)])
-                    ->setPictureName("Image n°" . $j . "." )
+                $picture->setPictureLink(self::$PictureNameList[rand(0, count(self::$PictureNameList) - 1)])
+                    ->setPictureName("Name of picture N°" . $j . " of trick n°" . $i)
                     ->setTrick($trick)
                     ->setUser($this->getReference(self::ADMIN_USER_REFERENCE));
                 $manager->persist($picture);
@@ -226,8 +234,8 @@ class AppFixtures extends Fixture
 
             for ($j = 1; $j <= rand(1, 3); $j++) {
                 $video = new Video();
-                $video->setVideoLink(self::$videoLinkList[rand(0,(count(self::$videoLinkList)-1))])
-                    ->setVideoName("Video n°" . $j . ".")
+                $video->setVideoLink(self::$videoLinkList[rand(0, (count(self::$videoLinkList) - 1))])
+                    ->setVideoName("Name of video N°" . $j . " of trick n°" . $i)
                     ->setTrick($trick)
                     ->SetUser($this->getReference(AppFixtures::ADMIN_USER_REFERENCE));
                 $manager->persist($video);
@@ -236,7 +244,7 @@ class AppFixtures extends Fixture
 
             for ($j = 1; $j <= rand(5, 15); $j++) {
                 $post = new Post();
-                $post->setPostContent("Contenu du commentaire n°" . $j . ".")
+                $post->setPostContent("Discusion about trick n°" . $i . " post N°" . $j)
                     ->setTrick($trick)
                     ->SetUser($this->getReference(AppFixtures::ADMIN_USER_REFERENCE));
                 $manager->persist($post);

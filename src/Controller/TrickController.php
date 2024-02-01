@@ -38,6 +38,14 @@ class TrickController extends AbstractController
         ]);
     }
 
+    #[Route('/all', name: 'app_trick_all', methods: ['GET'])]
+    public function all(TrickRepository $trickRepository): Response
+    {
+        return $this->render('trick/all.html.twig', [
+            'tricks' => $trickRepository->findAll(),
+        ]);
+    }
+
     #[Route('/new', name: 'app_trick_new', methods: ['GET', 'POST'])]
     #[IsGranted('ROLE_USER')]
     public function new(Request $request, TrickRepository $trickRepository, SluggerInterface $slugger, FilterYoutubeUrlService $filterVideoLink): Response
