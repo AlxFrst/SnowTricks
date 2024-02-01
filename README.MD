@@ -19,7 +19,9 @@ SnowTricks est un site communautaire qui permet aux utilisateurs de partager leu
 
 2. Configurer le fichier .env avec vos informations de base de données et vos identifiants Google pour les emails
 ```DATABASE_URL="mysql://user:password@host:port/database_name"```
-```MAILER_DSN=gmail://username:password@default?encryption=tls&auth_mode=oauth```
+```MAILER_DSN=gmail://email:password@default```
+Lancer ensuite dans un terminal le serveur de mail
+```symfony console messenger:consume async -vv```
 
 2. Installer les dépendances
 ```composer install```
@@ -33,11 +35,9 @@ SnowTricks est un site communautaire qui permet aux utilisateurs de partager leu
 ```symfony console doctrine:migrations:migrate```
 ```symfony console doctrine:fixtures:load```
 
-5. Lancer le serveur
+5. Lancer le serveur dans un autre terminal
 ```symfony server:start```
 
-6. Lancer le service mail
-```symfony console messenger:consume async -vv```
 
 ## Comptes de test
 Nous avons créé des comptes de test pour vous faciliter la tâche. Vous pouvez vous connecter avec les comptes suivants :
@@ -46,7 +46,3 @@ Nous avons créé des comptes de test pour vous faciliter la tâche. Vous pouvez
 
 -  **Utilisateur** : user
 -   **Mot de passe** : user
-
-
-
-
