@@ -7,7 +7,13 @@
 	<header class="flex justify-center items-center bg-gradient-to-r from-blue-500 to-purple-500" style="height: 95vh;">
 		<div class="text-center">
 			<h1 class="text-6xl font-bold text-white">SnowTricks</h1>
-			<p class="text-xl font-light text-gray-300">Trouvez vos figures de snowboard</p>
+			<p class="text-xl font-light text-gray-300">Votre site communautaire de partage de figures de snowboard</p>
+			<div class="flex justify-center mt-4">
+			{# see all trick button  #}
+				<a href="{{ path('app_trick_all') }}" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg hover:shadow-xl transition duration-300">
+					Voir toutes les figures
+				</a>
+				</div>
 		</div>
 		<div id="btn-drop-section" class="absolute bottom-10">
 			<a href="#trick-container" class="text-2xl text-white hover:text-gray-300">
@@ -17,7 +23,7 @@
 	</header>
 	<section class="flex flex-col m-4">
 		<div id="trick-container" class="flex flex-wrap justify-center gap-4">
-			<h2 class="text-3xl font-bold text-center w-full">Les figures</h2>
+			<h2 class="text-3xl font-bold text-center w-full">Les dernières figures ajoutées par la communauté</h2>
 			{{ include('home/_trickList_partial.html.twig') }}
 		</div>
 		<div class="text-center mt-4">
