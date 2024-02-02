@@ -23,14 +23,6 @@ class EditProfileType extends AbstractType
                     'class' => 'w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500',
                 ],
             ])
-            ->add('fullName', null, [
-                'label' => 'Nom complet',
-                'disabled' => true,
-                'attr' => [
-                    'placeholder' => 'Nom complet',
-                    'class' => 'w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500',
-                ],
-            ])
             ->add('profilePicture', FileType::class, [
                 'label' => 'Photo de profil',
                 'mapped' => false,

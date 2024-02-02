@@ -56,7 +56,6 @@ class ResetPasswordController extends AbstractController
     #[Route('/check-email', name: 'app_check_email')]
     public function checkEmail(): Response
     {
-
         if (null === ($resetToken = $this->getTokenObjectFromSession())) {
             $resetToken = $this->resetPasswordHelper->generateFakeResetToken();
         }
@@ -77,7 +76,7 @@ class ResetPasswordController extends AbstractController
 
         $token = $this->getTokenFromSession();
         if (null === $token) {
-            throw $this->createNotFoundException('Aucun token de réinitialisation de mot de passe trouvé dans l\'URL ou dans la session.');
+            throw $this->createNotFoundException('Pas de token de réinitialisation de mot de passe trouvé dans l\'URL ou en session.');
         }
 
         try {
@@ -87,7 +86,8 @@ class ResetPasswordController extends AbstractController
                 '%s - %s',
                 $translator->trans(ResetPasswordExceptionInterface::MESSAGE_PROBLEM_VALIDATE, [], 'ResetPasswordBundle'),
                 $translator->trans($e->getReason(), [], 'ResetPasswordBundle')
-            ));
+            )
+            );
 
             return $this->redirectToRoute('app_forgot_password_request');
         }
@@ -130,16 +130,17 @@ class ResetPasswordController extends AbstractController
             $resetToken = $this->resetPasswordHelper->generateResetToken($user);
         } catch (ResetPasswordExceptionInterface $e) {
             $this->addFlash('reset_password_error', sprintf(
-                 '%s - %s',
+                '%s - %s',
                 $translator->trans(ResetPasswordExceptionInterface::MESSAGE_PROBLEM_HANDLE, [], 'ResetPasswordBundle'),
-               $translator->trans($e->getReason(), [], 'ResetPasswordBundle')
-             ));
+                $translator->trans($e->getReason(), [], 'ResetPasswordBundle')
+            )
+            );
 
             return $this->redirectToRoute('app_check_email');
         }
 
         $email = (new TemplatedEmail())
-            ->from(new Address('alexandreforestier1107@gmail.com', 'Administateur'))
+            ->from(new Address('alexandreforestier1107@gmail.com', 'Snowtricks'))
             ->to($user->getEmail())
             ->subject('Votre demande de réinitialisation de mot de passe')
             ->htmlTemplate('reset_password/email.html.twig')
