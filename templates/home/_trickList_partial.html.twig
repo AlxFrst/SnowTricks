@@ -1,34 +1,28 @@
 {% for trick in tricks %}
-	<div class="m-3">
-		<div class="card h-100 shadow p-2 bg-white rounded-lg" style="width: 208px;">
-			{% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
-				<div class="absolute top-1 right-2">
-					<a class="badge bg-dark text-white" href="{{ path('app_trick_edit', { 'slug': trick.slug }) }}">
-						<i class="bi bi-pencil"></i>
-					</a>
-					{% if trick.publicationStatusTrick == 'Published' %}
-						<a class="badge bg-dark text-white" href="{{ path('app_trick_status', { 'slug': trick.slug,'publicationStatus': 'Unpublished' }) }}" onclick="return confirm('Êtes-vous sûr de vouloir dépublier cette figure ?')">
-							<i class="bi bi-trash"></i>
-						</a>
-					{% else %}
-						<a class="badge bg-dark text-white" href="{{ path('app_trick_status', { 'slug': trick.slug,'publicationStatus': 'Published' }) }}">
-							<i class="bi bi-globe"></i>
-						</a>
-					{% endif %}
-				</div>
-			{% endif %}
-			<a href="{{ path('app_trick', { 'slug': trick.slug }) }}">
-				{% if trick.pictures[0].pictureLink %}
-					<img class="card-img-top border object-cover" style="height: 190px;" src="{{ asset('uploads/images/'~trick.pictures[0].pictureLink) }}" alt="{{ trick.pictures[0].pictureName }}"/>
-				{% else %}
-					<img class="card-img-top" src="{{ asset('assets/heroBanner.jpg') }}" alt="Image par défaut"/>
-				{% endif %}
-			</a>
-			<div class="card-body p-0 text-center">
-				<a class="my-3 card-link fw-bolder" href="{{ path('app_trick', { 'slug': trick.slug }) }}">
-					<h5 class="my-3 card-link fw-bolder">{{ trick.name }}</h5>
-				</a>
-			</div>
-		</div>
-	</div>
+    <div class="m-3">
+        <div class="card trick-card shadow-sm bg-white rounded-lg" style="width: 240px; position: relative; overflow: hidden;">
+            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_USER') %}
+                <div class="edit-icons" style="position: absolute; top: 10px; right: 10px; z-index: 2;">
+                    <a href="{{ path('app_trick_edit', { 'slug': trick.slug }) }}" class="me-2" style="color: #6c757d; font-size: 16px;">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a href="{{ path('app_trick_status', { 'slug': trick.slug,'publicationStatus': 'Unpublished' }) }}" style="color: #dc3545; font-size: 16px;" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette figure ?')">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </div>
+            {% endif %}
+            <a href="{{ path('app_trick', { 'slug': trick.slug }) }}" class="trick-image-link">
+                {% if trick.pictures[0].pictureLink %}
+                    <img class="card-img-top" src="{{ asset('uploads/images/'~trick.pictures[0].pictureLink) }}" alt="{{ trick.pictures[0].pictureName }}" style="height: 190px; width: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                {% else %}
+                    <img class="card-img-top" src="{{ asset('assets/heroBanner.jpg') }}" alt="Image par défaut" style="height: 190px; width: 100%; object-fit: cover; transition: transform 0.3s ease;">
+                {% endif %}
+            </a>
+            <div class="card-body text-center">
+                <a href="{{ path('app_trick', { 'slug': trick.slug }) }}" class="stretched-link">
+                    <h5 class="card-title mb-0">{{ trick.name }}</h5>
+                </a>
+            </div>
+        </div>
+    </div>
 {% endfor %}

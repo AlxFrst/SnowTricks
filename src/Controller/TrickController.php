@@ -70,6 +70,7 @@ class TrickController extends AbstractController
             foreach ($pictureCollectionFields as $pictureField) {
                 $picture = $pictureField->getData();
                 $pictureFile = $picture->getFile();
+
                 $originalFilename = pathinfo($pictureFile, PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
                 $newFilename = $safeFilename . '-' . uniqid() . '.' . $pictureFile->guessExtension();

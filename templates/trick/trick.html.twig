@@ -64,11 +64,6 @@
 <!-- Description and Other Details -->
 <div class="container p-4 m-2 shadow-md border bg-white rounded-lg">
 	<div>
-		<p class="text-gray-600">Créé le
-			{{ trick.createdAt ? trick.createdAt|date('Y-m-d') : 'Non disponible' }}; Dernière mise à jour le
-			{{ trick.modifiedAt ? trick.modifiedAt|date('Y-m-d') : 'Non disponible' }}</p>
-	</div>
-	<div>
 		<h5 class="font-semibold mb-2">Description :</h5>
 		<p class="text-gray-800">{{ trick.description }}</p>
 	</div>
@@ -77,6 +72,11 @@
 		{% for category in trick.category %}
 			<div class="mx-1 px-3 py-1 bg-blue-100 text-blue-800 rounded-full shadow-sm">{{ category.name }}</div>
 		{% endfor %}
+	</div>
+	<div>
+		<p class="text-gray-600">Créé le
+			{{ trick.createdAt ? trick.createdAt|date('Y-m-d') : 'Non disponible' }}; Dernière mise à jour le
+			{{ trick.modifiedAt ? trick.modifiedAt|date('Y-m-d') : 'Non disponible' }}</p>
 	</div>
 </div>
 
