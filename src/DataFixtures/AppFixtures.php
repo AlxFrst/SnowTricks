@@ -206,6 +206,20 @@ class AppFixtures extends Fixture
         'figure12.jpg',
         'figure13.jpg',
         'figure14.jpg',
+        'figure15.jpg',
+        'figure16.jpg',
+        'figure17.jpg',
+        'figure18.jpg',
+        'figure19.jpg',
+        'figure20.jpg',
+        'figure21.jpg',
+        'figure22.jpg',
+        'figure23.jpg',
+        'figure24.jpg',
+        'figure25.jpg',
+        'figure26.jpg',
+        'figure27.jpg',
+        'figure28.jpg',
     ];
 
     private static array $videoLinkList = [
@@ -214,7 +228,15 @@ class AppFixtures extends Fixture
         "PxhfDec8Ays",
         "LyfFuv4_wjQ",
         "oI-umOzNBME",
-        "L4bIunv8fHM"
+        "L4bIunv8fHM",
+        "6pCl5CeWuII",
+        "67gbNKwLqds",
+        "16DENjPPaqQ",
+        "t2k1fPNysHM",
+        "P7NeerMfLq0",
+        "O3VphBHy7B4",
+        "t1P0SeYt2TA",
+        "G9qlTInKbNE",
     ];
 
     private static array $commentList = [
