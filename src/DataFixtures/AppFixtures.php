@@ -198,7 +198,14 @@ class AppFixtures extends Fixture
         'figure4.jpg',
         'figure5.jpg',
         'figure6.jpg',
-        'figure7.jpg'
+        'figure7.jpg',
+        'figure8.jpg',
+        'figure9.jpg',
+        'figure10.jpg',
+        'figure11.jpg',
+        'figure12.jpg',
+        'figure13.jpg',
+        'figure14.jpg',
     ];
 
     private static array $videoLinkList = [
