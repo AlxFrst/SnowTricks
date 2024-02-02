@@ -56,6 +56,14 @@ class TrickController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // Vérifier si un trick avec le même nom existe déjà
+            $existingTrick = $trickRepository->findOneBy(['name' => $trick->getName()]);
+
+            if ($existingTrick) {
+                // Si un trick avec le même nom existe déjà, informer l'utilisateur
+                $this->addFlash('error', 'Un trick avec ce nom existe déjà. Veuillez choisir un nom différent.');
+                return $this->redirectToRoute('app_trick_new', [], Response::HTTP_SEE_OTHER);
+            }
 
             $pictureCollectionFields = $form->get('pictures');
 
@@ -153,6 +161,7 @@ class TrickController extends AbstractController
     }
 
     #[Route('/{slug}/edit', name: 'app_trick_edit', methods: ['GET', 'POST'])]
+    #[IsGranted('ROLE_USER')]
     public function edit(Request $request, Trick $trick, TrickRepository $trickRepository, SluggerInterface $slugger, FilterYoutubeUrlService $filterVideoLink, LoggerInterface $logger): Response
     {
         $form = $this->createForm(TrickType::class, $trick);

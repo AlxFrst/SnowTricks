@@ -30,7 +30,7 @@ class TrickType extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => true,
-                'label' => 'Catégorie',
+                'label' => 'Catégorie:',
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Description de la figure',

@@ -15,19 +15,10 @@ class CategoryType extends AbstractType
     {
         $builder
 ->add('name', TextType::class, [
-    'label' => 'Nom de la catégorie ',
+    'label' => 'Nom de la catégorie: ',
     'attr' => [
         'class' => 'bg-gray-50 border border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm',
         'placeholder' => '360, Flip, Grab, ...'
-    ]
-])
-->add('parent', null, [ // Assumant que c'est un EntityType pour la catégorie parente
-    'class' => Category::class, // Remplacez Category::class par la classe de votre entité de catégorie
-    'choice_label' => 'name', // Assumant que 'name' est le champ à afficher des entités de catégorie
-    'label' => 'Référence ',
-    'attr' => [
-        'class' => 'bg-gray-50 border border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm',
-        'placeholder' => 'Sélectionnez une catégorie parente'
     ]
 ])
 ->add('add', SubmitType::class, [

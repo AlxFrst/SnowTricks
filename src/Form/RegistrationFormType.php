@@ -21,15 +21,6 @@ class RegistrationFormType extends AbstractType
                 'label' => "Nom d'utilisateur",
             ])
             ->add('email')
-            ->add('agreeTerms', CheckboxType::class, [
-                'label' => "J'accepte les conditions d'utilisation",
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'Vous devez accepter les conditions d\'utilisation',
-                    ]),
-                ],
-            ])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
