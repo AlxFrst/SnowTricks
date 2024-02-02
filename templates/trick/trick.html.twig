@@ -87,7 +87,7 @@
 		{% if is_granted('ROLE_USER') %}
 			<a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-lg mt-5 inline-block" href="{{ path('app_trick_index') }}">Retour à la liste</a>
 		{% else %}
-<a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-lg mt-5 inline-block" href="{{ path('app_trick_all') }}">Retour à la liste</a>
+			<a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg text-lg mt-5 inline-block" href="{{ path('app_trick_all') }}">Retour à la liste</a>
 		{% endif %}
 		</div>
 		<h5 class="font-semibold text-lg">Commentaires :</h5>
@@ -105,6 +105,15 @@
 		<ul id="post-container" class="space-y-2">
 			{{ include('trick/_postList.html.twig') }}
 		</ul>
-
+				<div class="text-center mt-4">
+			<button id="load-more" data-slug="{{ trick.slug }}" data-offsetpost="{{ offsetpost }}" class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow-lg hover:shadow-xl transition duration-300">
+				Charger plus
+			</button>
+		</div>
 	</div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	{{ encore_entry_script_tags('loadMoreComments') }}
 {% endblock %}
