@@ -17,7 +17,7 @@ class ResetPasswordRequestFormType extends AbstractType
                 'attr' => ['autocomplete' => 'email'],
                 'constraints' => [
                     new NotBlank([
-                        'message' => 'Veuillez entrer votre email',
+                        'message' => 'Please enter your email',
                     ]),
                 ],
             ])
