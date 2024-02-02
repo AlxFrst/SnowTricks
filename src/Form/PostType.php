@@ -13,10 +13,16 @@ class PostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('postContent', TextareaType::class,[
-                "label" => "Votre commentaire : "
-            ])
-        ;
+            ->add('postContent', TextareaType::class, [
+                'label' => 'Poster un commentaire : ',
+                'attr' => [
+                    'class' => 'form-control shadow', // Applique une ombre moyenne au textarea
+                    'rows' => 4,
+                ],
+                'label_attr' => [
+                    'class' => 'form-label mt-4',
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
