@@ -36,12 +36,6 @@
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
                 <div class="flex items-center justify-between">
-                    <div class="flex items-center">
-                        <input id="remember_me" name="_remember_me" type="checkbox" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
-                        <label for="remember_me" class="ml-2 block text-sm leading-5 text-gray-900">
-                            Se souvenir de moi
-                        </label>
-                    </div>
                     <a href="{{ path('app_forgot_password_request') }}" class="text-sm text-blue-600 hover:text-blue-800">
                         Mot de passe oublié ?
                     </a>

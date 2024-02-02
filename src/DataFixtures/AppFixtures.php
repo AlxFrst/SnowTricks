@@ -20,126 +20,176 @@ class AppFixtures extends Fixture
 
 
     private static array $categoryNameArray = [
-        "Nose grab",
+        // Regroupement par type de tricks
+        "One foot tricks", // Les tricks spécifiques en premier
+        "Front flips", // Les flips
+        "Back flips",
+        "Rotation", // Rotation comme une catégorie générale pour comprendre les valeurs suivantes
+        "180", // Les rotations en ordre croissant
+        "270",
+        "360",
+        "450",
+        "540",
+        "630",
+        "720",
+        "810",
+        "900",
+        "1080",
+        // Grabs
+        "Nose grab", // Les grabs
         "Japan",
         "Seat belt",
         "Truck driver",
-        "Rotation",
-        "180",
-        "360",
-        "540",
-        "720",
-        "900",
-        "1080",
-        "90",
-        "270",
-        "450",
-        "630",
-        "810",
-        "Front flips",
-        "Back flips",
-        "Slide",
+        // Slides
+        "Slide", // Les slides en général
         "Nose slide",
-        "Tail slide",
-        "One foot tricks"
+        "Tail slide"
     ];
 
     private static array $categorySlugArray = [
-        "nose-grab",
-        "japan",
-        "seat-belt",
-        "truck-driver",
-        "rotation",
-        "180",
+        // Regroupement par type de tricks
+        "One foot tricks", // Les tricks spécifiques en premier
+        "Front flips", // Les flips
+        "Back flips",
+        "Rotation", // Rotation comme une catégorie générale pour comprendre les valeurs suivantes
+        "180", // Les rotations en ordre croissant
+        "270",
         "360",
+        "450",
         "540",
+        "630",
         "720",
+        "810",
         "900",
         "1080",
-        "90",
-        "270",
-        "450",
-        "630",
-        "810",
-        "front-flips",
-        "back-flips",
-        "slide",
-        "nose-slide",
-        "tail-slide",
-        "one-foot-tricks"
+        // Grabs
+        "Nose grab", // Les grabs
+        "Japan",
+        "Seat belt",
+        "Truck driver",
+        // Slides
+        "Slide", // Les slides en général
+        "Nose slide",
+        "Tail slide"
     ];
 
     private static array $trickNameArray = [
+        // Tricks de base
         "Ollie",
         "Nollie",
+        "Butter",
+        "Tripod",
+
+        // Grabs
         "Melon",
         "Indy",
         "Nose Grab",
-        "50-50",
-        "Tail Press",
-        "Nose Press",
+        "Tail Grab",
+
+        // Rotations et Flips
         "Frontside 180",
         "Backside 180",
-        "Butter",
-        "Tripod",
-        "Tail Grab",
-        "Boardslide",
-        "Back Flip",
         "Frontside 360",
         "Backside 360",
-        "Front Roll",
+        "Frontside 360+", // Supposons que cela signifie une rotation de plus de 360 degrés
+        "Backside 360+",  // Supposons que cela signifie une rotation de plus de 360 degrés
+        "Back Flip",
         "Front Flip",
-        "Frontside 360+",
-        "Backside 360+",
+        "Front Roll", // Bien que moins commun, inclus dans les rotations/flips
+
+        // Slides et Presses
+        "50-50",
+        "Boardslide",
+        "Tail Press",
+        "Nose Press",
+
+        // Ajouts supplémentaires pour enrichir la liste
+        "540", // Ajout d'une rotation supplémentaire
+        "720", // Ajout d'une rotation supplémentaire
+        "McTwist", // Un flip aérien combiné à une rotation, très populaire en halfpipe
+        "Rail Jam", // Trick spécifique aux rails
+        "Switch", // Technique de changement de position
+        "Half-Cab", // Un nollie frontside 180
+        "Full-Cab", // Un nollie frontside 360
+        "Caballerial", // Un fakie backside 360
+        "Method Air" // Un grab spécifique en snowboard très iconique
     ];
 
     private static array $trickSlugArray = [
-        "ollie",
-        "nollie",
-        "melon",
-        "indy",
-        "nose-grab",
+        // Tricks de base
+        "Ollie",
+        "Nollie",
+        "Butter",
+        "Tripod",
+
+        // Grabs
+        "Melon",
+        "Indy",
+        "Nose Grab",
+        "Tail Grab",
+
+        // Rotations et Flips
+        "Frontside 180",
+        "Backside 180",
+        "Frontside 360",
+        "Backside 360",
+        "Frontside 360+", // Supposons que cela signifie une rotation de plus de 360 degrés
+        "Backside 360+",  // Supposons que cela signifie une rotation de plus de 360 degrés
+        "Back Flip",
+        "Front Flip",
+        "Front Roll", // Bien que moins commun, inclus dans les rotations/flips
+
+        // Slides et Presses
         "50-50",
-        "tail-press",
-        "nose-press",
-        "frontside-180",
-        "backside-180",
-        "butter",
-        "tripod",
-        "tail-grab",
-        "boardslide",
-        "back-flip",
-        "frontside-240",
-        "backside-360",
-        "front-roll",
-        "front-flip",
-        "frontside-360",
-        "backside-290",
+        "Boardslide",
+        "Tail Press",
+        "Nose Press",
+
+        // Ajouts supplémentaires pour enrichir la liste
+        "540", // Ajout d'une rotation supplémentaire
+        "720", // Ajout d'une rotation supplémentaire
+        "McTwist", // Un flip aérien combiné à une rotation, très populaire en halfpipe
+        "Rail Jam", // Trick spécifique aux rails
+        "Switch", // Technique de changement de position
+        "Half-Cab", // Un nollie frontside 180
+        "Full-Cab", // Un nollie frontside 360
+        "Caballerial", // Un fakie backside 360
+        "Method Air" // Un grab spécifique en snowboard très iconique
     ];
 
     private static array $trickDescriptionArray = [
-        "Un Ollie est probablement le premier trick de snowboard que vous apprendrez. C'est votre introduction aux sauts en snowboard. Pour réaliser un Ollie, vous devez déplacer votre poids corporel sur votre jambe arrière. Sautez, en veillant à commencer par votre jambe avant. Soulevez votre jambe arrière en alignement avec votre jambe avant.",
-        "Le Nollie est essentiellement l'opposé d'un Ollie. Lorsque vous sautez, commencez par votre jambe arrière. Ensuite, soulevez votre jambe avant pour aligner vos pieds. Vous trouverez probablement que vous pouvez gagner quelques centimètres après juste quelques essais.",
-        "Quand vous prenez de l'air en snowboard, penchez-vous et attrapez le côté talon de la planche entre vos pieds. Félicitations, vous avez réalisé votre premier Melon !",
-        "Vous pouvez réaliser un Indy en faisant un Ollie à partir d'un saut et en vous penchant pour attraper le bord des orteils de votre planche. Lâchez et repositionnez-vous pour un atterrissage en douceur.",
-        "Si vous pouvez faire un Melon et un Indy, vous êtes prêt pour un nose grab. Pendant que vous êtes en l'air, penchez-vous pour attraper l'avant de votre planche. Redressez votre corps et préparez-vous pour un atterrissage facile.",
-        "Le 50-50 vous initie aux tricks de glisse en snowboard. Quand vous approchez d'un rail ou d'une boîte, sautez pour atterrir dessus et glissez jusqu'à en sortir à l'autre extrémité. Commencez avec des rails courts jusqu'à ce que vous développiez l'équilibre nécessaire pour en glisser sur des plus longs.",
-        "Pratiquez le tail press sur une surface plate où vous vous sentez à l'aise. Prenez un peu de vitesse avant de vous pencher en arrière pour déplacer votre poids sur votre jambe arrière. Vous pouvez lever votre jambe avant pour accentuer la courbure de votre snowboard.",
-        "Le nose press fonctionne comme le tail press. Au lieu de vous pencher en arrière, vous déplacez votre poids vers l'avant. Cela peut sembler un peu plus intimidant au début, mais cela requiert la même compétence. La partie la plus difficile est de surmonter l'anxiété pour se sentir à l'aise sur son snowboard.",
-        "Prêt à faire tourner votre snowboard ? Avec un frontside 180, vous faites tourner votre corps de sorte que vos talons mènent. Par exemple, si vous sautez en descendant la pente avec votre pied gauche devant, vous tourneriez dans le sens antihoraire pour un frontside 180. Arrêtez-vous lorsque votre jambe arrière devient votre jambe de tête.",
-        "Un backside 180 est l'opposé d'un frontside 180. Tournez de sorte que vos orteils mènent. En descendant la pente avec votre jambe gauche devant, vous tourneriez dans le sens horaire jusqu'à ce que votre jambe droite devienne votre jambe de tête.",
-        "Le butter demande un peu plus de force du tronc que le frontside 180 et le backside 180. Au lieu de faire passer votre jambe arrière devant pendant un saut, vous le faites tout en maintenant le contact avec la neige. La neige crée un peu plus de friction, alors préparez-vous à y mettre du muscle.",
-        "Le tripod est un trick intermédiaire amusant à apprendre. Pour en réaliser un, vous devez soulever une extrémité de votre planche de la neige et vous pencher avec les deux mains pour toucher le sol. Quand vous le faites correctement, vous créez une connexion à trois points avec le sol, tout comme un trépied !",
-        "La prochaine fois que vous prenez de l'air, tendez la main pour attraper la queue de votre snowboard.",
-        "Le boardslide est comme un 50-50, sauf que vous tournez votre planche perpendiculairement au rail pour pouvoir glisser dessus de côté.",
-        "Faites attention en essayant un backflip. Vous aurez besoin de beaucoup de temps et d'espace pour compléter le flip avant d'atterrir.",
-        "La version cercle complet d'un Frontside 180.",
-        "La version cercle complet d'un Backside 180.",
-        "Le front roll déplace votre corps dans un mouvement vers l'avant, mais il s'incline un peu sur le côté. Maîtrisez-le avant de passer à un front flip complet.",
-        "Le front flip est plus difficile que le backflip car vous devez résister au mouvement ascendant que vous obtenez de votre saut. Au lieu de cela, penchez-vous en avant et recroquevillez votre corps pour tourner vers l'avant.",
-        "Vous l'avez probablement déjà deviné. C'est une rotation frontside qui vous fait tourner de plus d'un cercle complet.",
-        "L'opposé d'un frontside 360+. Maintenir l'équilibre devient difficile lorsque vous reculez tout en tournant.",
+        "L'Ollie est la base du snowboard freestyle. Déplacez votre poids sur votre jambe arrière, puis sautez, en commençant le mouvement avec votre jambe avant. Soulevez votre jambe arrière pour l'aligner avec l'avant.",
+        "Le Nollie, l'inverse de l'Ollie, commence par un saut de la jambe arrière. Soulevez ensuite votre jambe avant pour équilibrer vos pieds, gagnant de l'altitude à chaque essai.",
+        "Pour un Melon, saisissez le côté talon de votre planche entre vos pieds en l'air. C'est votre introduction aux grabs.",
+        "L'Indy s'exécute en attrapant le bord des orteils de votre planche après un Ollie. Relâchez pour atterrir en douceur.",
+        "Le Nose Grab implique de se pencher en l'air pour saisir l'avant de la planche, préparant à un atterrissage fluide.",
+        "Le 50-50 est un trick de slide de base sur un rail ou une boîte, en glissant du début à la fin.",
+        "Pour un Tail Press, penchez-vous en arrière en déplaçant votre poids sur votre jambe arrière, accentuant la courbure de la planche.",
+        "Le Nose Press se réalise en se penchant en avant, en déplaçant le poids sur la jambe avant pour presser le nose de la planche.",
+        "Le Frontside 180 fait tourner votre corps de sorte que vos talons mènent, changeant votre jambe de tête.",
+        "Le Backside 180 est l'opposé, avec une rotation où vos orteils mènent.",
+        "Le Butter implique de faire pivoter votre planche avec une jambe en avant tout en maintenant le contact avec la neige.",
+        "Un Tripod se fait en soulevant une extrémité de la planche et en se penchant pour toucher le sol avec les mains.",
+        "Pour un Tail Grab, saisissez la queue de votre snowboard en l'air.",
+        "Le Boardslide fait glisser votre planche perpendiculairement sur un rail.",
+        "Le Back Flip nécessite un saut puissant pour un flip complet avant l'atterrissage.",
+        "Un Frontside 360 est une rotation complète vers l'avant avec vos talons menant.",
+        "Un Backside 360 est une rotation complète avec vos orteils menant.",
+        "Le Front Roll est un mouvement de rotation vers l'avant avec une légère inclinaison.",
+        "Le Front Flip est un flip avant nécessitant un mouvement de corps recroquevillé pour réussir.",
+        "Le Frontside 360+ est une rotation frontale de plus de 360 degrés.",
+        "Le Backside 360+ est l'opposé, avec une rotation arrière de plus de 360 degrés.",
+        "Le 540 est une rotation aérienne de un et demi tour, un défi d'équilibre et de précision.",
+        "Le 720, ou deux tours complets, demande une maîtrise aérienne et un timing impeccable.",
+        "Le McTwist est un flip aérien combiné à une rotation, une figure spectaculaire en half-pipe.",
+        "Le Rail Jam est un trick avancé sur rail, exigeant un contrôle et une créativité exceptionnels.",
+        "Le Switch fait référence à rider en position inversée, ajoutant un défi supplémentaire à tout trick.",
+        "Le Half-Cab est un nollie frontside 180, parfait pour ajouter une touche de style.",
+        "Le Full-Cab, ou nollie frontside 360, combine rotation et élévation pour un effet spectaculaire.",
+        "Le Caballerial est un fakie backside 360, un trick de rotation arrière exécuté à partir d'une position fakie.",
+        "Le Method Air se distingue par un grab spécifique où le rider saisit le bord de sa planche tout en étendant les jambes vers l'arrière, offrant une posture aérienne emblématique."
     ];
+
 
     private static array $PictureNameList = [
         'figure1.jpg',
@@ -159,6 +209,80 @@ class AppFixtures extends Fixture
         "oI-umOzNBME",
         "L4bIunv8fHM"
     ];
+
+    private static array $commentList = [
+        "Quelle maîtrise incroyable, tu fais ça depuis combien de temps ?",
+        "Je suis toujours impressionné par la fluidité de tes mouvements. Des conseils pour les débutants ?",
+        "Spectaculaire! J'aimerais voir plus de vidéos comme celle-ci.",
+        "C'est le genre de performance qui m'inspire à sortir et à pratiquer davantage. Merci!",
+        "La technique est impeccable, tu as des conseils pour améliorer l'équilibre ?",
+        "J'ai essayé cela le week-end dernier et c'était bien plus difficile que prévu. Comment restes-tu si concentré ?",
+        "Ton engagement et ta passion sont évidents dans chaque mouvement. Bravo!",
+        "Je suis bluffé par la précision de tes tricks. As-tu un entraîneur ou est-ce tout en autodidacte ?",
+        "Ça doit prendre des années pour atteindre ce niveau. Quel est le trick le plus difficile que tu aies maîtrisé ?",
+        "Quels exercices recommandes-tu pour renforcer les muscles nécessaires à ces tricks ?",
+        "La façon dont tu as atterri ce trick était tout simplement élégante. Peux-tu partager des astuces sur l'atterrissage ?",
+        "Je travaille sur le même trick, mais j'ai du mal avec la rotation. Des suggestions ?",
+        "Ta progression est vraiment inspirante! Combien de temps pratiques-tu chaque jour ?",
+        "Impressionnant! Quelle est la prochaine étape pour toi ? Un trick encore plus audacieux ?",
+        "La confiance que tu dégages en exécutant ces tricks est contagieuse. Je me sens motivé à essayer moi-même.",
+        "Comment gères-tu la peur de l'échec ou de la chute lors de l'apprentissage de nouveaux tricks ?",
+        "Ce trick spécifique a l'air si fluide quand tu le fais. Peux-tu expliquer un peu le processus derrière ?",
+        "Vraiment cool de voir ta progression et comment tu repousses tes limites. Quel est ton secret ?",
+        "Tu rends cela tellement facile! J'ai tenté plusieurs fois mais pas encore là. Des exercices préparatoires à recommander ?",
+        "Quel équipement utilises-tu pour te préparer à ces tricks avancés ?",
+        "Impressionnant ! La façon dont tu as exécuté ce 720 était parfaite. As-tu des astuces pour garder un tel contrôle en l'air ?",
+        "Chapeau pour cette performance. Le backflip avait l'air si fluide. Ça fait combien de temps que tu t'entraînes ?",
+        "Cet Indy grab était juste sublime. Tu captures tellement bien l'essence du mouvement !",
+        "Wow, je suis épaté par ta technique de frontside 360. Peux-tu partager comment tu t'entraînes ?",
+        "Quelle inspiration ! Voir tes tricks me donne envie de redoubler d'effort pour améliorer mes propres figures.",
+        "J'ai tenté le nose grab après avoir vu ta vidéo. Des conseils pour ceux d'entre nous qui luttent pour maintenir l'équilibre ?",
+        "Le tail press était si stylé ! Comment fais-tu pour rester aussi stable ?",
+        "Je suis bluffé par ta capacité à enchaîner les tricks avec tant de fluidité. Quel est ton secret ?",
+        "Le butter que tu as réalisé était incroyable. J'aimerais savoir comment tu maintiens une telle fluidité tout au long.",
+        "Ton tripod m'a vraiment impressionné. Comment as-tu appris à le maîtriser à ce point ?",
+        "Je travaille sur le boardslide, mais j'ai du mal avec l'atterrissage. Des suggestions ?",
+        "La précision de tes rotations est remarquable. Utilises-tu des exercices spécifiques pour améliorer ta technique ?",
+        "Ton front flip m'a laissé sans voix. C'est le prochain trick sur ma liste à apprendre !",
+        "Je suis nouveau dans le snowboard. Voir tes performances me motive énormément. Quels conseils donnerais-tu à un débutant ?",
+        "L'élégance et la confiance que tu dégages en réalisant chaque trick sont vraiment inspirantes.",
+        "Le front roll semblait si aisé quand tu l'as fait. Pourrais-tu expliquer un peu plus comment aborder ce trick ?",
+        "Je me demandais si tu pouvais partager des astuces sur la façon de mieux atterrir après un saut élevé.",
+        "Chaque fois que je vois tes tricks, je suis émerveillé par ta créativité. Comment trouves-tu l'inspiration pour de nouvelles figures ?",
+        "Le McTwist était absolument époustouflant. Cela a dû demander des années de pratique !",
+        "C'est incroyable comment tu rends le half-cab look si simple. J'aimerais voir un tutoriel sur celui-ci.",
+        "Comment restes-tu si concentré pendant des tricks compliqués comme le 720 ou le McTwist ?",
+        "Le niveau de détail et de précision dans chaque trick est tellement professionnel. As-tu des routines d'entraînement spéciales ?",
+        "Voir tes figures me pousse à sortir et pratiquer, même les jours où je ne le sens pas. Merci pour l'inspiration !",
+        "As-tu des recommandations de spots pour pratiquer des tricks avancés en toute sécurité ?",
+        "Le switch que tu as réalisé était si fluide. Peux-tu parler de la transition entre les positions ?",
+        "J'adore comment tu expliques les aspects techniques de chaque trick. Ça aide vraiment les novices comme moi.",
+        "La façon dont tu as intégré le rail jam dans ta routine était innovante. As-tu des conseils pour ceux qui veulent l'essayer ?",
+        "C'est génial de voir quelqu'un maîtriser autant de tricks différents. Ça montre la diversité et la beauté du snowboard.",
+        "Ton backside 360+ était juste parfait. Comment parviens-tu à maintenir un tel équilibre ?",
+        "Le full-cab m'a totalement impressionné. C'est le genre de trick que je rêve de réussir un jour.",
+        "Le caballerial était d'une beauté à couper le souffle. C'est impressionnant de voir autant de maîtrise et de technique.",
+        "Je suis toujours à la recherche de nouvelles figures à ajouter à mon répertoire. Tes performances sont une mine d'or d'inspiration.",
+        "La communauté a tellement à apprendre de riders comme toi. Merci de partager tes connaissances et ton expérience.",
+        "Chaque trick que tu réalises avec tant d'aisance me rappelle pourquoi j'aime ce sport. Continue de nous inspirer !",
+        "Ton engagement envers le snowboard et le perfectionnement de chaque trick est évident. C'est très motivant.",
+        "La méthode air que tu as exécutée était d'une pureté incroyable. Peux-tu partager des conseils pour ceux d'entre nous qui cherchent à l'améliorer ?",
+        "La progression de tes tricks est remarquable. Peux-tu partager ton parcours d'apprentissage pour aider les autres ?",
+        "Voir quelqu'un d'aussi passionné par le snowboard est rafraîchissant. Cela me rappelle pourquoi je suis tombé amoureux de ce sport.",
+        "Le niveau de dévouement nécessaire pour réaliser des tricks comme les tiens est incroyable. Bravo pour tout ce travail acharné.",
+        "Tes vidéos sont toujours un régal à regarder. Elles sont pleines d'action, de conseils utiles, et d'inspiration.",
+        "La façon dont tu décomposes les étapes pour chaque trick est très utile. Cela aide vraiment à comprendre le processus.",
+        "Je suis impressionné par ta polyvalence. Du half-pipe au freestyle, tu sembles maîtriser tous les aspects du snowboard.",
+        "La créativité et l'originalité de tes tricks sont vraiment uniques. Cela montre une profonde compréhension du snowboard.",
+        "J'ai remarqué une amélioration significative dans mes propres performances en suivant tes conseils. Merci énormément !",
+        "La passion que tu mets dans chaque vidéo et chaque trick est contagieuse. Cela me donne envie de m'améliorer.",
+        "Je suis étonné par la facilité avec laquelle tu réalises des tricks qui me semblent impossibles.",
+        "Ton approche pédagogique pour enseigner des tricks complexes est vraiment appréciée. Ça aide beaucoup les débutants.",
+        "La confiance et le style que tu affiches dans chaque trick sont aspirants. Ça donne envie de repousser ses limites.",
+        "Merci pour tous les tutoriels et conseils. Ils ont fait une énorme différence dans ma façon de rider.",
+        "L'innovation et la technique que tu apportes au snowboard sont inspirantes. Cela montre qu'il y a toujours quelque chose de nouveau à apprendre."
+    ];
+
 
 
     public function __construct(UserPasswordHasherInterface $hasher)
@@ -223,28 +347,31 @@ class AppFixtures extends Fixture
                 ->SetUser($this->getReference(self::ADMIN_USER_REFERENCE));
             $manager->persist($trick);
 
-            for ($j = 1; $j <= rand(1, 6); $j++) {
+            for ($j = 1; $j <= rand(2, 4); $j++) {
                 $picture = new Pictures();
                 $picture->setPictureLink(self::$PictureNameList[rand(0, count(self::$PictureNameList) - 1)])
-                    ->setPictureName("Name of picture N°" . $j . " of trick n°" . $i)
+                    ->setPictureName("Image " . $j)
                     ->setTrick($trick)
                     ->setUser($this->getReference(self::ADMIN_USER_REFERENCE));
                 $manager->persist($picture);
             }
 
-            for ($j = 1; $j <= rand(1, 3); $j++) {
+            for ($j = 1; $j <= rand(2, 3); $j++) {
                 $video = new Video();
                 $video->setVideoLink(self::$videoLinkList[rand(0, (count(self::$videoLinkList) - 1))])
-                    ->setVideoName("Name of video N°" . $j . " of trick n°" . $i)
+                    ->setVideoName("Vidéo " . $j)
                     ->setTrick($trick)
                     ->SetUser($this->getReference(AppFixtures::ADMIN_USER_REFERENCE));
                 $manager->persist($video);
             }
 
-
-            for ($j = 1; $j <= rand(5, 15); $j++) {
+            for ($j = 1; $j <= rand(11, 15); $j++) {
                 $post = new Post();
-                $post->setPostContent("Discusion about trick n°" . $i . " post N°" . $j)
+                // Sélection aléatoire d'un commentaire de la liste
+                $randomCommentIndex = array_rand(self::$commentList);
+                $randomComment = self::$commentList[$randomCommentIndex];
+
+                $post->setPostContent($randomComment)
                     ->setTrick($trick)
                     ->SetUser($this->getReference(AppFixtures::ADMIN_USER_REFERENCE));
                 $manager->persist($post);
