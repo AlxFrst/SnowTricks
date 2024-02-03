@@ -44,7 +44,6 @@
                             {% else %}
                                 <a class="text-green-500 hover:text-green-800 ml-4" href="{{ path('app_trick_status', { 'slug': trick.slug,'publicationStatus': 'Published' }) }}">Publier</a>
                             {% endif %}
-                            <a class="text-red-500 hover:text-red-800 ml-4" href="{{ path('app_trick_delete', { 'slug': trick.slug }) }}">Supprimer</a>
                         </td>
                     </tr>
                 {% else %}
