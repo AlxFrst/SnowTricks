@@ -34,7 +34,7 @@ class ChangePasswordFormType extends AbstractType
                             'max' => 4096,
                         ]),
                     ],
-                    'label' => 'Nouveau mot de passe',
+                    'label' => 'Nouveau mot de passe ',
                 ],
                 'second_options' => [
                     'label' => 'Re-taper le mot de passe ',
