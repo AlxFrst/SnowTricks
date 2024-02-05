@@ -19,7 +19,7 @@ class PictureType extends AbstractType
                 'label' => "Téléverser une image",
                 'multiple' => false,
                 'mapped' => true,
-                'required' => false,
+                'required' => true,
                 'constraints' => [
                     new File([
                         'maxSize' => '2048k',
@@ -31,7 +31,7 @@ class PictureType extends AbstractType
             ]])
             ->add('pictureName',TextType::class,[
                 'label' => "Nom de l'image: ",
-                'required' => false,
+                'required' => true,
                 'attr' => [
                     'placeholder' => "Nom de l'image"
                 ]

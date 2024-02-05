@@ -2,7 +2,6 @@ $(document).ready(function () {
     if (document.querySelectorAll(".btn-add")) {
 
         const addItem = (e) => {
-            console.log("Hello");
             const collectionHolder = document
                 .querySelector(e.currentTarget.dataset.collection);
 
