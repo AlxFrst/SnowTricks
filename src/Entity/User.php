@@ -247,7 +247,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function removeTrick(Trick $trick): self
     {
         if ($this->tricks->removeElement($trick)) {
-            // set the owning side to null (unless already changed)
             if ($trick->getUser() === $this) {
                 $trick->setUser(null);
             }
