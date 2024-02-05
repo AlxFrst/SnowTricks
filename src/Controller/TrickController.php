@@ -11,7 +11,6 @@ use App\Repository\PostRepository;
 use App\Repository\TrickRepository;
 use App\Service\FilterYoutubeUrlService;
 use Doctrine\ORM\EntityManagerInterface;
-use JetBrains\PhpStorm\NoReturn;
 use Psr\Log\LoggerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -143,7 +142,8 @@ class TrickController extends AbstractController
             $entityManager->persist($post);
             $entityManager->flush();
             $this->addFlash('success', 'Votre commentaire a bien été ajouté');
-            return $this->redirectToRoute('app_trick', ['slug' => $trick->getSlug()]);
+            // redirect to trick page
+            return $this->redirectToRoute('app_trick_index', [], Response::HTTP_SEE_OTHER);
         }
 
         $posts = $postRepository->findBy(['trick' => $trick], ['created_at' => 'DESC'], 5, 0);
